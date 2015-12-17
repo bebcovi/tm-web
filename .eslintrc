@@ -1,0 +1,83 @@
+{
+  "root": true,
+  "extends": "eslint:recommended",
+  "parser": "babel-eslint",
+  "plugins": [
+    "babel",
+    "react"
+  ],
+  "env": {
+    "es6": true,
+    "node": true,
+    "mocha": true
+  },
+  "ecmaFeatures": {
+    "modules": true
+  },
+  "rules": {
+    "curly": 2,
+    "eqeqeq": 2,
+    "no-eq-null": 2,
+    "yoda": 2,
+
+    "no-shadow": 2,
+    "no-use-before-define": 2,
+
+    "jsx-quotes": [2, "prefer-double"],
+    "object-curly-spacing": [2, "always"],
+
+    "arrow-parens": [2, "always"],
+    "generator-star-spacing": 2,
+    "no-class-assign": 2,
+    "no-const-assign": 2,
+    "no-unused-vars": [2, {"vars": "all", "args": "none"}],
+    "no-useless-call": 2,
+    "no-this-before-super": 2,
+    "object-shorthand": 0,
+    "prefer-arrow-callback": 0,
+    "prefer-const": 2,
+    "prefer-reflect": 0,
+    "prefer-spread": 2,
+    "prefer-template": 2,
+    "require-yield": 2,
+    "semi": [2, "always"],
+
+    "babel/generator-star-spacing": 2,
+    "babel/new-cap": 0,
+    "babel/object-curly-spacing": [2, "always"],
+    "babel/object-shorthand": 0,
+    "babel/arrow-parens": 2,
+
+    "react/display-name": 0,
+    "react/forbid-prop-types": 0,
+    "react/jsx-boolean-value": [2, "always"],
+    "react/jsx-closing-bracket-location": [2, "line-aligned"],
+    "react/jsx-curly-spacing": [2, "never"],
+    "react/jsx-handler-names": 2,
+    "react/jsx-indent-props": [2, "tab"],
+    "react/jsx-key": 0,
+    "react/jsx-max-props-per-line": [2, {"maximum": 4}],
+    "react/jsx-no-bind": 1,
+    "react/jsx-no-duplicate-props": 2,
+    "react/jsx-no-literals": 2,
+    "react/jsx-no-undef": 2,
+    "react/jsx-pascal-case": 2,
+    "react/jsx-sort-prop-types": [2, {"callbacksLast": true}],
+    "react/jsx-uses-react": 2,
+    "react/jsx-uses-vars": 2,
+    "react/no-danger": 0,
+    "react/no-did-mount-set-state": 2,
+    "react/no-did-update-set-state": 2,
+    "react/no-direct-mutation-state": 2,
+    "react/no-multi-comp": 2,
+    "react/no-set-state": 0,
+    "react/no-unknown-property": 2,
+    "react/prefer-es6-class": 0,
+    "react/prop-types": 2,
+    "react/react-in-jsx-scope": 2,
+    "react/require-extension": 2,
+    "react/self-closing-comp": 2,
+    "react/sort-comp": 2,
+    "react/wrap-multilines": 2
+  }
+}
