@@ -10,6 +10,7 @@
     "preview": "NODE_ENV=production node server.js"
   },
   "devDependencies": {
+    "autoprefixer": "^6.2.0",
     "babel-core": "^5.8.34",
     "babel-eslint": "^4.1.6",
     "babel-loader": "^5.4.0",
@@ -30,6 +31,7 @@
     "mocha": "^2.3.4",
     "node-sass": "^3.4.2",
     "opn": "^3.0.3",
+    "postcss-loader": "^0.8.0",
     "react-addons-test-utils": "^0.14.3",
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.1",
@@ -48,13 +50,12 @@
   },
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.2",
+    "classnames": "^2.2.1",
     "delay": "^1.1.0",
     "es6-promise": "^3.0.2",
     "history": "^1.13.1",
     "moment": "^2.10.6",
-    "normalize.css": "^3.0.3",
     "query-string": "^3.0.0",
-    "radium": "^0.15.3",
     "react": "^0.14.3",
     "react-addons-pure-render-mixin": "^0.14.3",
     "react-dom": "^0.14.3",

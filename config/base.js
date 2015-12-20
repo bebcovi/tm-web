@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import { resolve } from 'path';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
+import autoprefixer from 'autoprefixer';
 import env from '../env';
 
 export default {
@@ -39,7 +40,16 @@ export default {
       loaders: ['json']
     }, {
       test: /\.s?css$/,
-      loaders: ['style', 'css', 'sass']
+      // https://github.com/webpack/css-loader/tree/1298d2b38c4770dbf853ff1eed632fe239881cc2#css-modules
+      loaders: ['style', 'css?modules', 'postcss', 'sass'],
+      include: resolve(__dirname, '../src/styles')
+    }, {
+      test: /\.s?css$/,
+      loaders: ['style', 'css', 'sass'],
+      exclude: resolve(__dirname, '../src/styles')
     }]
+  },
+  postcss() {
+    return [autoprefixer];
   }
 };
