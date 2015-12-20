@@ -25,6 +25,7 @@ export default {
       'window.fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
     }),
     new webpack.DefinePlugin({
+      NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       __API_KEY__: JSON.stringify(env.API_KEY)
     })
 	],
