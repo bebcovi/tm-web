@@ -1,12 +1,15 @@
-import path from 'path';
+import { resolve } from 'path';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 
 export default {
+  resolve: {
+    root: resolve('../src')
+  },
   entry: [
     './src'
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: resolve('../dist'),
     filename: 'bundle.js',
     publicPath: '/'
   },
@@ -19,7 +22,7 @@ export default {
     loaders: [{
       test: /\.js$/,
       loaders: ['babel'],
-      include: path.join(__dirname, '..', 'src')
+      include: resolve('../src')
     }, {
       test: /\.json$/,
       loaders: ['json']
