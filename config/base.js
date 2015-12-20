@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import { resolve } from 'path';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
+import env from '../env';
 
 export default {
   resolve: {
@@ -22,6 +23,9 @@ export default {
       // https://gist.github.com/Couto/b29676dd1ab8714a818f
       'Promise': 'exports?global.Promise!es6-promise',
       'window.fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+    }),
+    new webpack.DefinePlugin({
+      __API_KEY__: JSON.stringify(env.API_KEY)
     })
 	],
   module: {

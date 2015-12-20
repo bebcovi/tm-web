@@ -12,10 +12,16 @@ function json(response) {
   return response.json();
 }
 
-export default (url, options) => {
+export default (url, options = {}) => {
   let API_URL = 'http://api.toastmasters.hr';
   const request = () => {
-    return window.fetch(`${API_URL}${url}`, options)
+    return window.fetch(`${API_URL}${url}`, {
+      ...options,
+      headers: {
+        'X-Api-Key': __API_KEY__,
+        ...options.headers
+      }
+    })
       .then(status)
       .then(json);
   };
