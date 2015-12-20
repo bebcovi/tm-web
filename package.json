@@ -3,7 +3,7 @@
   "scripts": {
     "start": "babel-node server.js",
     "lint": "eslint . --fix",
-    "test": "NODE_ENV=test mocha src/**/*-test.js",
+    "test": "NODE_ENV=test mocha src/**/__tests__",
     "clean": "rimraf dist",
     "prebuild": "npm run lint && npm test && npm run clean",
     "build": "npm run prebuild && NODE_ENV=production webpack",
