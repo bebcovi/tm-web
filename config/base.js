@@ -1,3 +1,4 @@
+import webpack from 'webpack';
 import { resolve } from 'path';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 
@@ -15,7 +16,12 @@ export default {
   },
 	plugins: [
 		new HTMLWebpackPlugin({
-      template: 'src/index.html'
+      template: './src/index.html'
+    }),
+    new webpack.ProvidePlugin({
+      // https://gist.github.com/Couto/b29676dd1ab8714a818f
+      'Promise': 'exports?global.Promise!es6-promise',
+      'window.fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
     })
 	],
   module: {
