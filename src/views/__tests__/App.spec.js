@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
-import App from '../App';
+import App from 'views/App';
 
 describe('<App />', () => {
 	it('renders given children', () => {
