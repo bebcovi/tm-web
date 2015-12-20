@@ -5,13 +5,13 @@ import env from '../env';
 
 export default {
   resolve: {
-    root: resolve('./src')
+    root: resolve(__dirname, '../src')
   },
   entry: [
     './src'
   ],
   output: {
-    path: resolve('./dist'),
+    path: resolve(__dirname, '../dist'),
     filename: 'bundle.js',
     publicPath: '/'
   },
@@ -32,7 +32,7 @@ export default {
     loaders: [{
       test: /\.js$/,
       loaders: ['babel'],
-      include: resolve('./src')
+      include: resolve(__dirname, '../src')
     }, {
       test: /\.json$/,
       loaders: ['json']
