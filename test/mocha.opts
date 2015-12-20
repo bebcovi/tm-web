@@ -1,4 +1,4 @@
 --recursive
 --compilers js:babel-core/register
---require ./navigator
+--require ./test/global
 --bail
