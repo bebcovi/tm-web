@@ -7,7 +7,7 @@
     "clean": "rimraf dist",
     "prebuild": "npm run lint && npm test && npm run clean",
     "build": "NODE_ENV=production webpack",
-    "preview": "NODE_ENV=production node server.js"
+    "preview": "NODE_ENV=production babel-node server.js"
   },
   "devDependencies": {
     "autoprefixer": "^6.2.0",
