@@ -3,7 +3,6 @@
 		"browser": true
 	},
 	"globals": {
-		"__DEV__": false,
 		"__API_KEY__": false
 	},
 }

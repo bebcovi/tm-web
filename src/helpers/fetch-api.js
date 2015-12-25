@@ -27,7 +27,7 @@ export default (url, options = {}) => {
   };
   let promise;
 
-  if (__DEV__) {
+  if (!process.env['NODE_ENV']) {
     API_URL = 'http://localhost:9292';
     // make slower requests,
 		// to be able to see the loading experience

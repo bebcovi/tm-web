@@ -1,4 +1,3 @@
-import webpack from 'webpack';
 import { resolve } from 'path';
 
 export default {
@@ -18,11 +17,7 @@ export default {
     filename: 'test.js',
     publicPath: '/'
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      __DEV__: JSON.stringify(false)
-    })
-  ],
+  plugins: [],
   module: {
     loaders: [{
       test: /\.js$/,

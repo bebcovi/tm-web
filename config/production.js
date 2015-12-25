@@ -10,9 +10,6 @@ module.exports = {
 		new HTMLWebpackPlugin({
       template: 'src/index.html'
     }),
-		new webpack.DefinePlugin({
-			__DEV__: JSON.stringify(false)
-		}),
 		new webpack.ProvidePlugin({
       // https://gist.github.com/Couto/b29676dd1ab8714a818f
       'Promise': 'exports?global.Promise!es6-promise',

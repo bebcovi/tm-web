@@ -5,9 +5,6 @@ global.document = jsdom('<!doctype html><html><body></body></html>');
 global.window = global.document.defaultView;
 global.navigator = global.window.navigator;
 
-// simulate production environment
-global.__DEV__ = false;
-
 // avoid Enzyme webpack errors
 // https://github.com/airbnb/enzyme/issues/47#issuecomment-165791879
 global.enzyme = require('enzyme');

@@ -14,10 +14,7 @@ export default {
       'window.fetch': 'exports?self.fetch!whatwg-fetch'
     }),
 		new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-    new webpack.DefinePlugin({
-      __DEV__: JSON.stringify(true)
-    })
+    new webpack.NoErrorsPlugin()
   ],
 	module: {
 		loaders: [{
