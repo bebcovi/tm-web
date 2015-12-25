@@ -1,24 +1,18 @@
-import base from './config/base';
-import dev from './config/dev';
-import prod from './config/prod';
+import * as config from './config';
 
-const config = process.env['NODE_ENV'] === 'production' ? prod : dev;
+const env = process.env['NODE_ENV'] || 'development';
 
 export default {
-	...base,
-	...config,
-	entry: [
-		...base.entry,
-		...config.entry
-	],
+	...config.base,
+	...config[env],
 	plugins: [
-		...base.plugins,
-		...config.plugins
+		...config.base.plugins,
+		...config[env].plugins
 	],
 	module: {
 		loaders: [
-			...base.module.loaders,
-			...config.module.loaders
+			...config.base.module.loaders,
+			...config[env].module.loaders
 		]
 	}
 };

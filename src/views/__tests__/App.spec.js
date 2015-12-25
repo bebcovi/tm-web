@@ -1,7 +1,8 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import { expect } from 'chai';
+import expect from 'expect';
 import App from 'views/App';
+
+const { shallow } = global.enzyme;
 
 describe('<App />', () => {
 	it('renders given children', () => {
@@ -11,6 +12,8 @@ describe('<App />', () => {
 				{child}
 			</App>
 		);
-		expect(wrapper.contains(child)).to.be.true;
+		expect(
+			wrapper.contains(child)
+		).toBe(true);
 	});
 });

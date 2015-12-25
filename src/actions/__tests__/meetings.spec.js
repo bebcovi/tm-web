@@ -1,4 +1,4 @@
-import { expect } from 'chai';
+import expect from 'expect';
 import * as actions from 'actions/meetings';
 import * as types from 'constants/action-types';
 
@@ -9,7 +9,7 @@ describe('meetings actions', () => {
 
 		expect(
 			actions.addMeeting(date, note)
-		).to.deep.equal({
+		).toEqual({
 			type: types.ADD_MEETING,
 			date,
 			note

@@ -1,4 +1,4 @@
-import { expect } from 'chai';
+import expect from 'expect';
 import reducer from 'reducers/meetings';
 import * as types from 'constants/action-types';
 
@@ -6,7 +6,7 @@ describe('meetings reducer', () => {
 	it('has the initial state', () => {
 		expect(
 			reducer(undefined, {})
-		).to.deep.equal([]);
+		).toEqual([]);
 	});
 
 	it('handles ADD_MEETING', () => {
@@ -15,7 +15,7 @@ describe('meetings reducer', () => {
 			date: '2015-12-20',
 			note: 'My first meeting.'
 		});
-		expect(state).to.deep.equal([
+		expect(state).toEqual([
 			{
 				date: '2015-12-20',
 				note: 'My first meeting.',
@@ -27,7 +27,7 @@ describe('meetings reducer', () => {
 			date: '2012-05-05',
 			note: 'My second meeting.'
 		});
-		expect(state).to.deep.equal([
+		expect(state).toEqual([
 			{
 				date: '2012-05-05',
 				note: 'My second meeting.',
