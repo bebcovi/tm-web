@@ -1,5 +1,6 @@
 import webpack from 'webpack';
 import { resolve } from 'path';
+import fontMagician from 'postcss-font-magician';
 import autoprefixer from 'autoprefixer';
 import env from '../env';
 
@@ -27,6 +28,9 @@ export default {
     }]
   },
   postcss() {
-    return [autoprefixer];
+    return [
+      fontMagician,
+      autoprefixer
+    ];
   }
 };
