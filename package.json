@@ -33,6 +33,7 @@
     "jsdom": "^7.2.1",
     "json-loader": "^0.5.4",
     "mocha": "^2.3.4",
+    "nock": "^3.5.0",
     "node-sass": "^3.4.2",
     "null-loader": "^0.1.1",
     "opn": "^3.0.3",
@@ -59,6 +60,7 @@
     "delay": "^1.1.0",
     "es6-promise": "^3.0.2",
     "history": "^1.13.1",
+    "isomorphic-fetch": "^2.2.0",
     "moment": "^2.10.6",
     "query-string": "^3.0.0",
     "react": "^0.14.3",
@@ -70,7 +72,6 @@
     "react-router": "^1.0.2",
     "redux": "^3.0.5",
     "redux-router": "^1.0.0-beta5",
-    "tether": "^1.1.1",
-    "whatwg-fetch": "^0.10.1"
+    "tether": "^1.1.1"
   }
 }

@@ -10,8 +10,7 @@ export default {
 	plugins: [
 		new webpack.ProvidePlugin({
       // https://gist.github.com/Couto/b29676dd1ab8714a818f
-      'Promise': 'exports?global.Promise!es6-promise',
-      'window.fetch': 'exports?self.fetch!whatwg-fetch'
+      'Promise': 'exports?global.Promise!es6-promise'
     }),
 		new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()

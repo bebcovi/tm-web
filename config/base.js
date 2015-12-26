@@ -13,14 +13,15 @@ export default {
     filename: 'bundle.js',
     publicPath: '/'
   },
-	plugins: [
+  plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+        NODE_ENV: JSON.stringify(process.env['NODE_ENV'])
       },
-      __API_KEY__: JSON.stringify(env.API_KEY)
+      __API_URL__: JSON.stringify(process.env['NODE_ENV'] ? 'http://api.toastmasters.hr' : 'http://localhost:9292'),
+      __API_KEY__: JSON.stringify(env['API_KEY'])
     })
-	],
+  ],
   module: {
     loaders: [{
       test: /\.json$/,
