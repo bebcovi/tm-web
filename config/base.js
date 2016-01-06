@@ -20,7 +20,9 @@ export default {
       },
       __API_URL__: JSON.stringify(process.env['NODE_ENV'] ? 'http://api.toastmasters.hr' : 'http://localhost:9292'),
       __API_KEY__: JSON.stringify(env['API_KEY'])
-    })
+    }),
+    // https://github.com/webpack/webpack/issues/59#issuecomment-12923514
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en$/)
   ],
   module: {
     loaders: [{
