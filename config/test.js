@@ -19,6 +19,10 @@ export default {
   },
   plugins: [],
   module: {
+    // https://github.com/webpack/webpack/issues/198#issuecomment-37306725
+    // require(expr)
+    exprContextRegExp: /$^/,
+    exprContextCritical: false,
     loaders: [{
       test: /\.js$/,
       loaders: ['babel'],

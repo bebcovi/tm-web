@@ -10,6 +10,8 @@ export default {
 		...config[env].plugins
 	],
 	module: {
+		...config.base.module,
+		...config[env].module,
 		loaders: [
 			...config.base.module.loaders,
 			...config[env].module.loaders
