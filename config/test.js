@@ -1,7 +1,7 @@
 import { resolve } from 'path';
 
 export default {
-  devtool: 'source-map',
+  devtool: 'eval-source-map',
   target: 'node',
   resolve: {
     root: [

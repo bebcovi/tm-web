@@ -2,7 +2,7 @@ import webpack from 'webpack';
 import { resolve } from 'path';
 
 export default {
-	devtool: 'eval',
+	devtool: 'cheap-module-eval-source-map',
 	entry: [
     'webpack-hot-middleware/client',
 		'./src'
