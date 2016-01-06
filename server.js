@@ -5,11 +5,13 @@ import hotMiddleware from 'webpack-hot-middleware';
 import path from 'path';
 import express from 'express';
 import config from './webpack.config.babel';
+import _debug from 'debug';
 
 let dir;
 
 const app = express();
 const compiler = webpack(config);
+const debug = _debug('app:http');
 
 if (process.env['NODE_ENV'] === 'production') {
 	dir = 'dist';
@@ -31,6 +33,8 @@ app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, dir, 'index.html'));
 });
 
+debug('starting the server...');
+
 const server = app.listen(9000, 'localhost', (err) => {
 	const HOST = server.address().address;
 	const PORT = server.address().port;
@@ -40,5 +44,5 @@ const server = app.listen(9000, 'localhost', (err) => {
 		return;
 	}
 
-	console.log('Listening at http://%s:%s', HOST, PORT);
+	debug('listening at http://%s:%s', HOST, PORT);
 });
