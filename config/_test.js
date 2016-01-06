@@ -6,16 +6,16 @@ export default {
   resolve: {
     root: [
       resolve(__dirname, '../src'),
-      resolve(__dirname, '../test')
-    ]
+      resolve(__dirname, '../test'),
+    ],
   },
   entry: [
-    './test'
+    './test',
   ],
   output: {
     path: resolve(__dirname, '../.tmp'),
     filename: 'test.js',
-    publicPath: '/'
+    publicPath: '/',
   },
   plugins: [],
   module: {
@@ -28,11 +28,11 @@ export default {
       loaders: ['babel'],
       include: [
         resolve(__dirname, '../src'),
-        resolve(__dirname, '../test')
-      ]
+        resolve(__dirname, '../test'),
+      ],
     }, {
       test: /\.(s?css|jpe?g|png|gif|svg)$/,
-      loaders: ['null']
-    }]
-  }
+      loaders: ['null'],
+    }],
+  },
 };

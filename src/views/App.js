@@ -1,13 +1,13 @@
 import React, { PropTypes } from 'react';
 
-const App = React.createClass({
-	propTypes: {
-		children: PropTypes.node
-	},
+class App extends React.Component {
+  static propTypes = {
+    children: PropTypes.node,
+  }
 
-	render() {
-		return this.props.children;
-	}
-});
+  render() {
+    return this.props.children;
+  }
+}
 
 export default App;

@@ -2,11 +2,15 @@ import fetch from 'isomorphic-fetch';
 import delay from 'delay';
 
 function status(response) {
+  let promise;
+
   if (response.status >= 200 && response.status < 300) {
-    return Promise.resolve(response);
+    promise = Promise.resolve(response);
   } else {
-    return Promise.reject(response);
+    promise = Promise.reject(response);
   }
+
+  return promise;
 }
 
 export default (url, options = {}) => {
@@ -15,8 +19,8 @@ export default (url, options = {}) => {
       ...options,
       headers: {
         'X-Api-Key': __API_KEY__,
-        ...options.headers
-      }
+        ...options.headers,
+      },
     })
       .then(status);
   };
@@ -24,11 +28,11 @@ export default (url, options = {}) => {
 
   if (!process.env['NODE_ENV']) {
     // make slower requests,
-		// to be able to see the loading experience
+    // to be able to see the loading experience
     promise = delay(1000).then(request);
   } else {
-		promise = request();
-	}
+    promise = request();
+  }
 
   return promise;
 };

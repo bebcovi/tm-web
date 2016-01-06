@@ -13,36 +13,36 @@ const app = express();
 const compiler = webpack(config);
 const debug = _debug('app:http');
 
-if (process.env['NODE_ENV'] === 'production') {
-	dir = 'dist';
-	app.use(express.static(dir));
+if (process.env.NODE_ENV === 'production') {
+  dir = 'dist';
+  app.use(express.static(dir));
 } else {
-	dir = 'src';
-	app.use(devMiddleware(compiler, {
-		noInfo: true,
-		publicPath: config.output.publicPath,
-		stats: {
-			colors: true,
-			chunks: false
-		}
-	}));
-	app.use(hotMiddleware(compiler));
+  dir = 'src';
+  app.use(devMiddleware(compiler, {
+    noInfo: true,
+    publicPath: config.output.publicPath,
+    stats: {
+      colors: true,
+      chunks: false,
+    },
+  }));
+  app.use(hotMiddleware(compiler));
 }
 
 app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, dir, 'index.html'));
+  res.sendFile(path.join(__dirname, dir, 'index.html'));
 });
 
 debug('starting the server...');
 
 const server = app.listen(9000, 'localhost', (err) => {
-	const HOST = server.address().address;
-	const PORT = server.address().port;
+  const HOST = server.address().address;
+  const PORT = server.address().port;
 
-	if (err) {
-		console.log(err);
-		return;
-	}
+  if (err) {
+    console.log(err);
+    return;
+  }
 
-	debug('listening at http://%s:%s', HOST, PORT);
+  debug('listening at http://%s:%s', HOST, PORT);
 });
