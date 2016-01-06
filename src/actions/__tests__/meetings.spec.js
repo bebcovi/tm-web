@@ -1,6 +1,6 @@
 import expect from 'expect';
 import * as actions from 'actions/meetings';
-import * as types from 'constants/action-types';
+import { ADD_MEETING } from 'constants/action-types';
 
 describe('meetings actions', () => {
 	it('addMeeting creates an ADD_MEETING action', () => {
@@ -10,9 +10,8 @@ describe('meetings actions', () => {
 		expect(
 			actions.addMeeting(date, note)
 		).toEqual({
-			type: types.ADD_MEETING,
-			date,
-			note
+			type: ADD_MEETING,
+			date, note
 		});
 	});
 });

@@ -1,6 +1,6 @@
 import expect from 'expect';
 import reducer from 'reducers/meetings';
-import * as types from 'constants/action-types';
+import { ADD_MEETING } from 'constants/action-types';
 
 describe('meetings reducer', () => {
 	it('has the initial state', () => {
@@ -11,7 +11,7 @@ describe('meetings reducer', () => {
 
 	it('handles ADD_MEETING', () => {
 		let state = reducer(undefined, {
-			type: types.ADD_MEETING,
+			type: ADD_MEETING,
 			date: '2015-12-20',
 			note: 'My first meeting.'
 		});
@@ -23,7 +23,7 @@ describe('meetings reducer', () => {
 			}
 		]);
 		state = reducer(state, {
-			type: types.ADD_MEETING,
+			type: ADD_MEETING,
 			date: '2012-05-05',
 			note: 'My second meeting.'
 		});

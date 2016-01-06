@@ -1,8 +1,8 @@
-import * as types from 'constants/action-types';
+import { ADD_MEETING } from 'constants/action-types';
 
 const meetings = (state = [], action) => {
 	switch (action.type) {
-		case types.ADD_MEETING:
+		case ADD_MEETING:
 			return [
 				{
 					id: state.reduce((maxId, meeting) => Math.max(meeting.id, maxId), -1) + 1,
