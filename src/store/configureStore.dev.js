@@ -1,11 +1,11 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import createLogger from 'redux-logger';
 import DevTools from 'containers/DevTools';
-import * as middleware from '../middleware';
+import thunk from 'redux-thunk';
 import rootReducer from '../reducers';
 
 const finalCreateStore = compose(
-  applyMiddleware(...middleware, createLogger()),
+  applyMiddleware(thunk, createLogger()),
   DevTools.instrument()
 )(createStore);
 
