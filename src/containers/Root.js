@@ -7,7 +7,7 @@ class Root extends React.Component {
   static propTypes = {
     history: PropTypes.object.isRequired,
     store: PropTypes.object.isRequired,
-  }
+  };
 
   render() {
     const { props } = this;
