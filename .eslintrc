@@ -7,7 +7,6 @@
     "max-len": [2, 100, 2, {
       "ignoreUrls": true,
       "ignoreComments": false
-    }],
-    "react/jsx-closing-bracket-location": [2, "line-aligned"],
+    }]
   }
 }
