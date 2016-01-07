@@ -9,8 +9,8 @@ const finalCreateStore = compose(
   DevTools.instrument()
 )(createStore);
 
-export default function configureStore() {
-  const store = finalCreateStore(rootReducer);
+export default function configureStore(initialState) {
+  const store = finalCreateStore(rootReducer, initialState);
 
   if (module.hot) {
     // Enable webpack hot module replacement for reducers
