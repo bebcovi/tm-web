@@ -6,8 +6,8 @@ import configureStore from './store/configureStore';
 import Root from './containers/Root';
 import 'bootstrap/scss/bootstrap-reboot.scss';
 
-const history = createHistory();
 const store = configureStore();
+const history = createHistory();
 
 syncReduxAndRouter(history, store);
 
