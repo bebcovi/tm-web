@@ -1,4 +1,4 @@
-import { ADD_MEETING } from 'constants/action-types';
+import { ADD_MEETING } from 'constants/ActionTypes';
 
 const meetings = (state = [], action) => {
   switch (action.type) {

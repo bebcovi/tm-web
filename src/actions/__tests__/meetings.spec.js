@@ -1,6 +1,6 @@
 import expect from 'expect';
 import * as actions from 'actions/meetings';
-import { ADD_MEETING } from 'constants/action-types';
+import { ADD_MEETING } from 'constants/ActionTypes';
 
 describe('meetings actions', () => {
   it('addMeeting creates an ADD_MEETING action', () => {

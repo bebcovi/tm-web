@@ -1,6 +1,6 @@
 import expect from 'expect';
 import reducer from 'reducers/meetings';
-import { ADD_MEETING } from 'constants/action-types';
+import { ADD_MEETING } from 'constants/ActionTypes';
 
 describe('meetings reducer', () => {
   it('has the initial state', () => {
