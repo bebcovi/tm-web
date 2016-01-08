@@ -11,10 +11,8 @@ module.exports = {
       template: 'src/index.html',
     }),
     new webpack.ProvidePlugin({
-      /* eslint-disable quote-props */
       // https://gist.github.com/Couto/b29676dd1ab8714a818f
       'Promise': 'exports?global.Promise!es6-promise',
-      /* eslint-enable */
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
