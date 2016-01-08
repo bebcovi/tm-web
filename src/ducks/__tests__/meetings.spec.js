@@ -1,14 +1,7 @@
 import expect from 'expect';
-import reducer from 'reducers/meetings';
-import { ADD_MEETING } from 'constants/ActionTypes';
+import reducer, { ADD_MEETING } from '../meetings';
 
-describe('meetings reducer', () => {
-  it('has the initial state', () => {
-    expect(
-      reducer(undefined, {})
-    ).toEqual([]);
-  });
-
+describe('meetings', () => {
   it('handles ADD_MEETING', () => {
     let state = reducer(undefined, {
       type: ADD_MEETING,

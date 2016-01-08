@@ -1,6 +1,6 @@
-import { ADD_MEETING } from 'constants/ActionTypes';
+export const ADD_MEETING = 'ADD_MEETING';
 
-const meetings = (state = [], action) => {
+export default function reducer(state = [], action) {
   switch (action.type) {
     case ADD_MEETING:
       return [
@@ -14,6 +14,10 @@ const meetings = (state = [], action) => {
     default:
       return state;
   }
-};
+}
 
-export default meetings;
+export const addMeeting = (date, note) => ({
+  type: ADD_MEETING,
+  date,
+  note,
+});
