@@ -1,0 +1,13 @@
+{
+  "execMap": {
+    "js": "babel-node"
+  },
+  "watch": [
+    "server.js",
+    "config",
+    "webpack.config.babel.js"
+  ],
+  "events": {
+    "restart": "clear"
+  }
+}

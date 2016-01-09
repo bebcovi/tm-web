@@ -1,7 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "start": "DEBUG=app:* babel-node server.js",
+    "prestart": "clear",
+    "start": "DEBUG=app:* nodemon server.js",
     "lint": "eslint .",
     "test": "NODE_ENV=test webpack && mocha .tmp",
     "clean": "rimraf dist",
@@ -36,6 +37,7 @@
     "mocha": "^2.3.4",
     "nock": "^3.5.0",
     "node-sass": "^3.4.2",
+    "nodemon": "^1.8.1",
     "null-loader": "^0.1.1",
     "opn": "^3.0.3",
     "postcss-font-magician": "^1.4.0",
