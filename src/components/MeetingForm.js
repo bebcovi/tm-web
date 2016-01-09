@@ -15,27 +15,34 @@ class MeetingForm extends React.Component {
 
     return (
       <form onSubmit={handleSubmit}>
-        <h2>New meeting</h2>
-        <div>
-          <label>{'Date'}</label>
+        <h2>Novi sastanak</h2>
+        <fieldset className="form-group">
+          <label htmlFor="meetingDate">
+            {'Datum'}
+          </label>
           <input
+            className="form-control"
+            id="meetingDate"
             type="text"
-            placeholder="Date"
             {...date}
           />
-        </div>
-        <div>
-          <label>{'Note'}</label>
+        </fieldset>
+        <fieldset className="form-group">
+          <label htmlFor="meetingNote">
+            {'Bilješka'}
+          </label>
           <textarea
-            placeholder="Note"
+            className="form-control"
+            id="meetingNote"
             {...note}
           />
-        </div>
+        </fieldset>
         <button
+          className="btn btn-primary"
           type="submit"
           onClick={handleSubmit}
         >
-          {'Submit'}
+          {'Spremi'}
         </button>
       </form>
     );

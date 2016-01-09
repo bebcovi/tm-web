@@ -4,7 +4,7 @@ import { createHistory } from 'history';
 import { syncReduxAndRouter } from 'redux-simple-router';
 import configureStore from './flux/configureStore';
 import Root from './containers/Root';
-import 'bootstrap/scss/bootstrap-reboot.scss';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const store = configureStore();
 const history = createHistory();
