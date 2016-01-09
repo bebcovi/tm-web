@@ -16,7 +16,7 @@ export default function reducer(state = [], action) {
   }
 }
 
-export const addMeeting = (date, note) => ({
+export const addMeeting = ({ date, note }) => ({
   type: ADD_MEETING,
   date,
   note,

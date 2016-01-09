@@ -1,23 +1,47 @@
-import React from 'react';
-import fetch from 'helpers/fetch-api';
+import React, { PropTypes } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import MeetingForm from 'components/MeetingForm';
+import { addMeeting } from 'ducks/meetings';
 
 class Dashboard extends React.Component {
-  componentDidMount() {
-    this._fetchMeetings();
-  }
-
-  _fetchMeetings() {
-    return fetch('/meetings')
-      .then((res) => {
-        console.log(res);
-      });
-  }
+  static propTypes = {
+    actions: PropTypes.object.isRequired,
+    meetings: PropTypes.array.isRequired,
+  };
 
   render() {
+    const { props } = this;
+
     return (
-      <h1>{'Hello World!'}</h1>
+      <div>
+        <MeetingForm
+          onSubmit={props.actions.addMeeting}
+        />
+        <ul>
+          {props.meetings.map((meeting, i) => (
+            <li key={i}>
+              {meeting.date},
+              {meeting.note}
+            </li>
+          ))}
+        </ul>
+      </div>
     );
   }
 }
 
-export default Dashboard;
+const mapStateToProps = (state) => ({
+  meetings: state.meetings,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  actions: bindActionCreators({
+    addMeeting,
+  }, dispatch),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Dashboard);
