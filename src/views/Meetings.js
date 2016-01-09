@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import MeetingForm from 'components/MeetingForm';
-import { addMeeting } from 'ducks/meetings';
+import { addMeeting } from 'flux/modules/meetings';
 
 class Dashboard extends React.Component {
   static propTypes = {

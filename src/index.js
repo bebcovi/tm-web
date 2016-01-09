@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { createHistory } from 'history';
 import { syncReduxAndRouter } from 'redux-simple-router';
-import configureStore from './store/configureStore';
+import configureStore from './flux/configureStore';
 import Root from './containers/Root';
 import 'bootstrap/scss/bootstrap-reboot.scss';
 

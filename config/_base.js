@@ -18,9 +18,7 @@ export default {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env['NODE_ENV']),
-      },
+      __DEV__: JSON.stringify(IS_DEV),
       __API_URL__: JSON.stringify(API_URL),
       __API_KEY__: JSON.stringify(env['API_KEY']),
     }),

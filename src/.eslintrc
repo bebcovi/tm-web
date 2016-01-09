@@ -3,6 +3,7 @@
     "mocha": true
   },
   "globals": {
+    "__DEV__": false,
     "__API_URL__": false,
     "__API_KEY__": false
   },

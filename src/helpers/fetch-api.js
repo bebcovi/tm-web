@@ -26,7 +26,7 @@ export default (url, options = {}) => {
   };
   let promise;
 
-  if (!process.env['NODE_ENV']) {
+  if (__DEV__) {
     // make slower requests,
     // to be able to see the loading experience
     promise = delay(1000).then(request);
