@@ -28,7 +28,7 @@ export default {
     }, {
       test: /\.s?css$/,
       loaders: ['style', 'css', 'sass'],
-      exclude: resolve(__dirname, '../src/styles'),
+      include: resolve(__dirname, '../node_modules'),
     }, {
       test: /\.(jpe?g|png|gif|svg)$/i,
       loaders: ['url?limit=10000&name=[name].[ext]'],
