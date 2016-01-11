@@ -14,7 +14,7 @@ class MeetingForm extends React.Component {
     } = this.props;
 
     return (
-      <form onSubmit={handleSubmit}>
+      <form className="m-b-1" onSubmit={handleSubmit}>
         <h2>Novi sastanak</h2>
         <fieldset className="form-group">
           <label htmlFor="meetingDate">

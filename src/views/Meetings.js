@@ -2,13 +2,18 @@ import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import MeetingForm from 'components/MeetingForm';
-import { addMeeting } from 'flux/modules/meetings';
+import { loadList as loadMeetings, add as addMeeting } from 'flux/modules/meetings';
 
 class Dashboard extends React.Component {
   static propTypes = {
     actions: PropTypes.object.isRequired,
-    meetings: PropTypes.array.isRequired,
+    meetings: PropTypes.object.isRequired,
   };
+
+  componentDidMount() {
+    const { actions } = this.props;
+    actions.loadMeetings();
+  }
 
   render() {
     const { props } = this;
@@ -18,25 +23,34 @@ class Dashboard extends React.Component {
         <MeetingForm
           onSubmit={props.actions.addMeeting}
         />
-        <ul>
-          {props.meetings.map((meeting, i) => (
-            <li key={i}>
-              {meeting.date},
-              {meeting.note}
-            </li>
-          ))}
-        </ul>
+        <table className="table">
+          <thead>
+            <tr>
+              <th />
+              <th>Datum</th>
+            </tr>
+          </thead>
+          <tbody>
+            {props.meetings.list.map((meeting, i) => (
+              <tr key={i}>
+                <td>{`#${i + 1}`}</td>
+                <td>{meeting.attributes.date}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
-  meetings: state.meetings,
+const mapStateToProps = ({ meetings }) => ({
+  meetings,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators({
+    loadMeetings,
     addMeeting,
   }, dispatch),
 });
