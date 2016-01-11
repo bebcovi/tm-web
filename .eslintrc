@@ -8,6 +8,7 @@
       "ignoreUrls": true,
       "ignoreComments": false
     }],
-    "quote-props": [2, "as-needed", { "unnecessary": false }]
+    "quote-props": [2, "as-needed", { "unnecessary": false }],
+    "react/no-set-state": 2
   }
 }
