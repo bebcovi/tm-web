@@ -1,13 +1,13 @@
 import { CALL_API } from '../middleware/api';
 
-const LIST_REQUEST = 'app/meetings/LIST_REQUEST';
-const LIST_SUCCESS = 'app/meetings/LIST_SUCCESS';
-const LIST_ERROR = 'app/meetings/LIST_ERROR';
+const LIST_LOAD_REQUEST = 'app/meetings/LIST_LOAD_REQUEST';
+const LIST_LOAD_SUCCESS = 'app/meetings/LIST_LOAD_SUCCESS';
+const LIST_LOAD_ERROR = 'app/meetings/LIST_LOAD_ERROR';
 
 function fetchList() {
   return {
     [CALL_API]: {
-      types: [LIST_REQUEST, LIST_SUCCESS, LIST_ERROR],
+      types: [LIST_LOAD_REQUEST, LIST_LOAD_SUCCESS, LIST_LOAD_ERROR],
       endpoint: '/meetings',
     },
   };
@@ -41,11 +41,12 @@ function postItem(attributes) {
   };
 }
 
-export const add = (attributes) => {
+export const addItem = (attributes) => {
   return (dispatch) => {
     return dispatch(postItem(attributes));
   };
 };
+
 
 export default function reducer(state = {
   isFetching: false,
@@ -64,16 +65,9 @@ export default function reducer(state = {
         ],
       };
 
-    case LIST_REQUEST:
+    case LIST_LOAD_SUCCESS:
       return {
         ...state,
-        isFetching: true,
-      };
-
-    case LIST_SUCCESS:
-      return {
-        ...state,
-        isFetching: false,
         list: action.response.data,
       };
 

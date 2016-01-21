@@ -2,9 +2,9 @@ import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import MeetingForm from 'components/MeetingForm';
-import { loadList as loadMeetings, add as addMeeting } from 'flux/modules/meetings';
+import { loadList as loadMeetings, addItem as addMeeting } from 'flux/modules/meetings';
 
-class Dashboard extends React.Component {
+export class Meetings extends React.Component {
   static propTypes = {
     actions: PropTypes.object.isRequired,
     meetings: PropTypes.object.isRequired,
@@ -58,4 +58,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Dashboard);
+)(Meetings);

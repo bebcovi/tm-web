@@ -9,40 +9,34 @@ class MeetingForm extends React.Component {
 
   render() {
     const {
-      fields: { date, note },
+      fields: { date },
       handleSubmit,
     } = this.props;
 
     return (
-      <form className="m-b-1" onSubmit={handleSubmit}>
-        <h2>Novi sastanak</h2>
+      <form className="form-inline m-b-1" onSubmit={handleSubmit}>
         <fieldset className="form-group">
-          <label htmlFor="meetingDate">
+          <label
+            className="sr-only"
+            htmlFor="meetingDate"
+          >
             {'Datum'}
           </label>
           <input
             className="form-control"
             id="meetingDate"
             type="text"
+            placeholder="Datum"
             {...date}
           />
         </fieldset>
-        <fieldset className="form-group">
-          <label htmlFor="meetingNote">
-            {'Bilješka'}
-          </label>
-          <textarea
-            className="form-control"
-            id="meetingNote"
-            {...note}
-          />
-        </fieldset>
+        {' '}
         <button
           className="btn btn-primary"
           type="submit"
           onClick={handleSubmit}
         >
-          {'Spremi'}
+          {'Dodaj sastanak'}
         </button>
       </form>
     );
@@ -51,7 +45,7 @@ class MeetingForm extends React.Component {
 
 MeetingForm = reduxForm({
   form: 'meeting',
-  fields: ['date', 'note'],
+  fields: ['date'],
 })(MeetingForm);
 
 export default MeetingForm;

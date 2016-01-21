@@ -1,6 +1,6 @@
 import React from 'react';
 import expect from 'expect';
-import App from 'views/App';
+import { App } from '../App';
 
 const { shallow } = global.enzyme;
 

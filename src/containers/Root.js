@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute } from 'react-router';
 import { App, Meetings } from 'views';
 
-class Root extends React.Component {
+export class Root extends React.Component {
   static propTypes = {
     history: PropTypes.object.isRequired,
     store: PropTypes.object.isRequired,

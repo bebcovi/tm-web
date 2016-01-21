@@ -1,8 +1,8 @@
 import expect from 'expect';
-import reducer, { ADD_MEETING } from '../meetings';
+import reducer, { loadList, addItem } from '../meetings';
 
 describe('meetings', () => {
-  it('handles ADD_MEETING', () => {
+  it('loadList ', () => {
     let state = reducer(undefined, {
       type: ADD_MEETING,
       date: '2015-12-20',
