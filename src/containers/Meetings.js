@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import moment from 'moment';
-import * as propTypes from 'prop-types';
+import * as propTypes from '../prop-types';
 
 moment.locale('hr');
 

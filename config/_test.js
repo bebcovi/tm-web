@@ -4,10 +4,7 @@ export default {
   devtool: 'eval-source-map',
   target: 'node',
   resolve: {
-    root: [
-      resolve(__dirname, '../src'),
-      resolve(__dirname, '../test'),
-    ],
+    root: resolve(__dirname, '../src'),
   },
   entry: [
     './test',

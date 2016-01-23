@@ -4,6 +4,7 @@ import fetch from '../../helpers/fetch-api';
 export const CALL_API = Symbol('Call API');
 
 let nextTransactionID = 0;
+
 export default store => next => action => {
   const callAPI = action[CALL_API];
 

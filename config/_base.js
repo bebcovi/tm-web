@@ -10,9 +10,6 @@ const API_URL = IS_DEV ?
   'http://api.toastmasters.hr';
 
 export default {
-  resolve: {
-    root: resolve(__dirname, '../src'),
-  },
   output: {
     path: resolve(__dirname, '../dist'),
     filename: 'bundle.js',

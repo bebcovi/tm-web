@@ -65,9 +65,16 @@ export default function reducer(state = {
         ],
       };
 
+    case LIST_LOAD_REQUEST:
+      return {
+        ...state,
+        isFetching: true,
+      };
+
     case LIST_LOAD_SUCCESS:
       return {
         ...state,
+        isFetching: false,
         list: action.response.data,
       };
 

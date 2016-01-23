@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import MeetingForm from 'components/MeetingForm';
-import MeetingList from 'containers/Meetings';
-import { loadList as loadMeetings, addItem as addMeeting } from 'flux/modules/meetings';
+import MeetingForm from '../components/MeetingForm';
+import MeetingList from '../containers/Meetings';
+import { loadList as loadMeetings, addItem as addMeeting } from '../redux/modules/meetings';
 
 export class Meetings extends React.Component {
   static propTypes = {

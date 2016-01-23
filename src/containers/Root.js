@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute } from 'react-router';
-import { App, Meetings } from 'views';
+import { App, Meetings } from '../views';
 
 export class Root extends React.Component {
   static propTypes = {
