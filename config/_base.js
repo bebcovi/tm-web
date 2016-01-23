@@ -5,7 +5,9 @@ import autoprefixer from 'autoprefixer';
 import env from '../env';
 
 const IS_DEV = !process.env['NODE_ENV'];
-const API_URL = IS_DEV ? 'http://localhost:9292' : 'http://api.toastmasters.hr';
+const API_URL = IS_DEV ?
+  'http://localhost:9292' :
+  'http://api.toastmasters.hr';
 
 export default {
   resolve: {
