@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import MeetingForm from 'components/MeetingForm';
+import MeetingList from 'containers/Meetings';
 import { loadList as loadMeetings, addItem as addMeeting } from 'flux/modules/meetings';
 
 export class Meetings extends React.Component {
@@ -23,22 +24,7 @@ export class Meetings extends React.Component {
         <MeetingForm
           onSubmit={props.actions.addMeeting}
         />
-        <table className="table">
-          <thead>
-            <tr>
-              <th />
-              <th>Datum</th>
-            </tr>
-          </thead>
-          <tbody>
-            {props.meetings.list.map((meeting, i) => (
-              <tr key={i}>
-                <td>{`#${i + 1}`}</td>
-                <td>{meeting.attributes.date}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <MeetingList {...props.meetings} />
       </div>
     );
   }
