@@ -25,10 +25,20 @@ export default {
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /hr$/),
   ],
   module: {
-    loaders: [{
-      test: /\.json$/,
-      loaders: ['json'],
-    }],
+    loaders: [
+      {
+        test: /\.js$/,
+        loaders: ['babel'],
+        include: [
+          resolve(__dirname, '../src'),
+          resolve(__dirname, '../test'),
+        ],
+      },
+      {
+        test: /\.json$/,
+        loaders: ['json'],
+      },
+    ],
   },
   postcss() {
     return [

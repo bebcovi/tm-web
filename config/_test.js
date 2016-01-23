@@ -20,16 +20,11 @@ export default {
     // require(expr)
     exprContextRegExp: /$^/,
     exprContextCritical: false,
-    loaders: [{
-      test: /\.js$/,
-      loaders: ['babel'],
-      include: [
-        resolve(__dirname, '../src'),
-        resolve(__dirname, '../test'),
-      ],
-    }, {
-      test: /\.(s?css|jpe?g|png|gif|svg)$/,
-      loaders: ['null'],
-    }],
+    loaders: [
+      {
+        test: /\.(s?css|jpe?g|png|gif|svg)$/,
+        loaders: ['null'],
+      },
+    ],
   },
 };
