@@ -25,7 +25,7 @@ export default {
       __API_KEY__: JSON.stringify(env['API_KEY']),
     }),
     // https://github.com/webpack/webpack/issues/59#issuecomment-12923514
-    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en$/),
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /hr$/),
   ],
   module: {
     loaders: [{

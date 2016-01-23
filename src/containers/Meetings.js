@@ -1,4 +1,7 @@
 import React, { PropTypes } from 'react';
+import moment from 'moment';
+
+moment.locale('hr');
 
 class Meetings extends React.Component {
   static propTypes = {
@@ -24,7 +27,12 @@ class Meetings extends React.Component {
           {props.list.map((meeting, i) => (
             <tr key={i}>
               <td>{`#${i + 1}`}</td>
-              <td>{meeting.attributes.date}</td>
+              <td>
+                {
+                  moment(meeting.attributes.date)
+                    .format('do MMMM')
+                }
+              </td>
             </tr>
           ))}
         </tbody>
