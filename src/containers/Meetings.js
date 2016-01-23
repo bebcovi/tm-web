@@ -17,7 +17,7 @@ class Meetings extends React.Component {
     const { props } = this;
 
     return (
-      <table className="table">
+      <table className="table table-striped">
         <thead>
           <tr>
             <th />
