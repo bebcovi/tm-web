@@ -2,8 +2,6 @@ import React, { PropTypes } from 'react';
 import moment from 'moment';
 import * as propTypes from '../prop-types';
 
-moment.locale('hr');
-
 class Meetings extends React.Component {
   static propTypes = {
     list: PropTypes.arrayOf(propTypes.meeting).isRequired,
