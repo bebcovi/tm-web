@@ -1,20 +1,23 @@
 import { createStore as _createStore, applyMiddleware } from 'redux';
-import createLogger from 'redux-logger';
+import { syncHistory } from 'redux-simple-router';
+import { createHistory } from 'history';
 import thunk from 'redux-thunk';
 import api from './middleware/api';
+import createLogger from 'redux-logger';
 import rootReducer from './rootReducer';
 
-let createStore;
+export const history = createHistory();
+
+let middleware = [syncHistory(history), thunk, api];
 
 if (__DEV__) {
-  createStore = applyMiddleware(
-    thunk, api, createLogger()
-  )(_createStore);
-} else {
-  createStore = applyMiddleware(
-    thunk, api
-  )(_createStore);
+  middleware = [
+    ...middleware,
+    createLogger(),
+  ];
 }
+
+const createStore = applyMiddleware(...middleware)(_createStore);
 
 export default function configureStore(initialState) {
   const store = createStore(rootReducer, initialState);
