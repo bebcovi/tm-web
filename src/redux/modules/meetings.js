@@ -80,6 +80,14 @@ export default function reducer(state = initialState, action) {
         ],
       };
 
+    case ITEM_DELETE_REQUEST:
+      return {
+        ...state,
+        list: state.list.reduce((p, c, i) => {
+          return i === action.id ? p : p.concat(c);
+        }, []),
+      };
+
     default:
       return state;
   }

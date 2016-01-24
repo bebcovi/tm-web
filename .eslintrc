@@ -6,7 +6,8 @@
     "dot-notation": 0,
     "max-len": [2, 100, 2, {
       "ignoreUrls": true,
-      "ignoreComments": false
+      "ignoreComments": false,
+      "ignorePattern": "^\\s*<(path|polygon)\\s"
     }],
     "quote-props": [2, "as-needed", { "unnecessary": false }],
     "react/no-set-state": 2,

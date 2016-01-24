@@ -19,6 +19,7 @@ export class Root extends React.Component {
             <Route path="meetings" component={View.MeetingsBase}>
               <IndexRoute component={View.MeetingsShow} />
               <Route path="new" component={View.MeetingsNew} />
+              <Route path=":id" component={View.MeetingShow} />
             </Route>
             <IndexRedirect to="meetings" />
           </Route>
