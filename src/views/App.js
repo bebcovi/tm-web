@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
 
 export class App extends React.Component {
   static propTypes = {
@@ -10,7 +11,12 @@ export class App extends React.Component {
       <div>
         <nav className="navbar navbar-light bg-faded m-b-2">
           <div className="container">
-            <a className="navbar-brand" href="#">Toastmasters</a>
+            <Link
+              className="navbar-brand"
+              to="/"
+            >
+              {'Toastmasters'}
+            </Link>
           </div>
         </nav>
         <div className="container">
