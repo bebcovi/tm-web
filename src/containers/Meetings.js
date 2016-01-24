@@ -31,7 +31,7 @@ class Meetings extends React.Component {
               <td>
                 {
                   moment(meeting.attributes.date)
-                    .format('do MMMM')
+                    .format('Do MMMM')
                 }
               </td>
             </tr>
