@@ -17,7 +17,7 @@ export class Root extends React.Component {
         <Router history={props.history}>
           <Route path="/" component={View.App}>
             <Route path="meetings" component={View.MeetingsBase}>
-              <IndexRoute component={View.MeetingsList} />
+              <IndexRoute component={View.MeetingsShow} />
               <Route path="new" component={View.MeetingsNew} />
             </Route>
             <IndexRedirect to="meetings" />

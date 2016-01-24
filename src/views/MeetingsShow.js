@@ -6,7 +6,7 @@ import Meetings from '../containers/Meetings';
 import { loadList as loadMeetings } from '../redux/modules/meetings';
 import * as Icon from '../components/icons';
 
-export class MeetingsList extends React.Component {
+export class MeetingsShow extends React.Component {
   static propTypes = {
     loadMeetings: PropTypes.func.isRequired,
     meetings: PropTypes.object.isRequired,
@@ -50,4 +50,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(MeetingsList);
+)(MeetingsShow);
