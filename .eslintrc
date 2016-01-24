@@ -9,6 +9,7 @@
       "ignoreComments": false
     }],
     "quote-props": [2, "as-needed", { "unnecessary": false }],
-    "react/no-set-state": 2
+    "react/no-set-state": 2,
+    "react/jsx-boolean-value": [2, "always"]
   }
 }

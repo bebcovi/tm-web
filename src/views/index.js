@@ -1,2 +1,5 @@
 export App from './App';
-export Meetings from './Meetings';
+
+export MeetingsBase from './MeetingsBase';
+export MeetingsList from './MeetingsList';
+export MeetingsNew from './MeetingsNew';

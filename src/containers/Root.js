@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
-import { Router, Route, IndexRoute } from 'react-router';
-import { App, Meetings } from '../views';
+import { Router, Route, IndexRoute, IndexRedirect } from 'react-router';
+import * as View from '../views';
 
 export class Root extends React.Component {
   static propTypes = {
@@ -15,8 +15,12 @@ export class Root extends React.Component {
     return (
       <Provider store={props.store}>
         <Router history={props.history}>
-          <Route path="/" component={App}>
-            <IndexRoute component={Meetings} />
+          <Route path="/" component={View.App}>
+            <Route path="meetings" component={View.MeetingsBase}>
+              <IndexRoute component={View.MeetingsList} />
+              <Route path="new" component={View.MeetingsNew} />
+            </Route>
+            <IndexRedirect to="meetings" />
           </Route>
         </Router>
       </Provider>

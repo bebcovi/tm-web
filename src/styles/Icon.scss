@@ -1,0 +1,14 @@
+.container {
+  :global(.btn) & {
+    display: inline;
+    vertical-align: middle;
+
+    &:first-child {
+      margin-right: 4px;
+    }
+
+    &:last-child {
+      margin-left: 4px;
+    }
+  }
+}
