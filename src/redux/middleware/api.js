@@ -52,9 +52,9 @@ export default store => next => action => {
         id: transactionID,
       },
     })),
-    response => next(actionWith({
+    error => next(actionWith({
       type: errorType,
-      response,
+      error,
       optimist: {
         type: REVERT,
         id: transactionID,
