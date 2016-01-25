@@ -5,6 +5,7 @@ export const CALL_API = Symbol('Call API');
 
 let nextTransactionID = 0;
 
+// API calls + optimistic updates
 export default store => next => action => {
   const callAPI = action[CALL_API];
 
