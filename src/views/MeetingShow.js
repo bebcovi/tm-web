@@ -17,11 +17,10 @@ class MeetingShow extends React.Component {
   }
 
   _handleDelete() {
-    const { props } = this;
-    const pathname = props.location.pathname.split('/');
+    const pathname = this.props.location.pathname.split('/');
     const id = pathname[pathname.length - 1];
-    props.deleteMeeting(id);
-    props.push('/meetings');
+    this.props.deleteMeeting(id);
+    this.props.push('/meetings');
   }
 
   render() {

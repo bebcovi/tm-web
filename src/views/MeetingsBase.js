@@ -1,11 +1,27 @@
-import { PropTypes } from 'react';
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { loadList } from '../redux/modules/meetings';
 
-const MeetingsBase = (props) => {
-  return props.children;
+class MeetingsBase extends React.Component {
+  static propTypes = {
+    children: PropTypes.node,
+    loadList: PropTypes.func.isRequired,
+  };
+
+  componentDidMount() {
+    this.props.loadList();
+  }
+
+  render() {
+    return this.props.children;
+  }
+}
+
+const mapDispatchToProps = {
+  loadList,
 };
 
-MeetingsBase.propTypes = {
-  children: PropTypes.node,
-};
-
-export default MeetingsBase;
+export default connect(
+  null,
+  mapDispatchToProps,
+)(MeetingsBase);

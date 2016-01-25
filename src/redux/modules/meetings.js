@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { CALL_API } from '../middleware/api';
 
 const LIST_LOAD_REQUEST = 'app/meetings/LIST_LOAD_REQUEST';
@@ -30,7 +31,6 @@ export function addItem(attributes) {
           attributes,
         },
       },
-      callback: loadList,
     },
   };
 }
@@ -41,11 +41,11 @@ const ITEM_DELETE_ERROR = 'app/meetings/ITEM_DELETE_ERROR';
 
 export function deleteItem(id) {
   return {
+    id,
     [CALL_API]: {
       types: [ITEM_DELETE_REQUEST, ITEM_DELETE_SUCCESS, ITEM_DELETE_ERROR],
       endpoint: '/meetings/' + id,
       method: 'delete',
-      callback: loadList,
     },
   };
 }
@@ -71,14 +71,21 @@ export default function reducer(state = initialState, action) {
       };
 
     case ITEM_ADD_REQUEST:
+      let added = false;
       return {
         ...state,
-        list: [
-          {
-            attributes: action.attributes,
-          },
-          ...state.list,
-        ],
+        list: state.list.reduce((p, c, i, a) => {
+          if (!added) {
+            if (moment(c.attributes.date).isSameOrBefore(action.attributes.date)) {
+              added = true;
+              return p.concat({ attributes: action.attributes }, c);
+            } else if (i === a.length - 1) {
+              added = true;
+              return p.concat(c, { attributes: action.attributes });
+            }
+          }
+          return p.concat(c);
+        }, []),
       };
 
     case ITEM_DELETE_REQUEST:
