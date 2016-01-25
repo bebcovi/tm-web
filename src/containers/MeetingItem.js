@@ -3,7 +3,7 @@ import moment from 'moment';
 
 class MeetingItem extends React.Component {
   static propTypes = {
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string,
     date: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
   };

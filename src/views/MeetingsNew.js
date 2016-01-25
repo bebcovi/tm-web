@@ -17,7 +17,7 @@ class MeetingsNew extends React.Component {
 
   _handleSubmit(...args) {
     const { props } = this;
-    props.addMeeting(...args);
+    props.addMeeting(args[0]);
     props.push('/meetings');
   }
 

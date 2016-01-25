@@ -30,6 +30,7 @@ export function addItem(attributes) {
           attributes,
         },
       },
+      callback: loadList,
     },
   };
 }
@@ -44,6 +45,7 @@ export function deleteItem(id) {
       types: [ITEM_DELETE_REQUEST, ITEM_DELETE_SUCCESS, ITEM_DELETE_ERROR],
       endpoint: '/meetings/' + id,
       method: 'delete',
+      callback: loadList,
     },
   };
 }
@@ -73,7 +75,6 @@ export default function reducer(state = initialState, action) {
         ...state,
         list: [
           {
-            id: state.list.reduce((maxId, meeting) => Math.max(meeting.id, maxId), -1) + 1,
             attributes: action.attributes,
           },
           ...state.list,
@@ -83,8 +84,8 @@ export default function reducer(state = initialState, action) {
     case ITEM_DELETE_REQUEST:
       return {
         ...state,
-        list: state.list.reduce((p, c, i) => {
-          return i === action.id ? p : p.concat(c);
+        list: state.list.reduce((p, c) => {
+          return c.id === action.id ? p : p.concat(c);
         }, []),
       };
 

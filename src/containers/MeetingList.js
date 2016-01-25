@@ -10,9 +10,9 @@ const MeetingList = (props) => (
       </tr>
     </thead>
     <tbody>
-      {props.list.map(meeting => (
+      {props.list.map((meeting, i) => (
         <MeetingItem
-          key={meeting.id}
+          key={i}
           id={meeting.id}
           date={meeting.attributes.date}
           onClick={props.onClick}

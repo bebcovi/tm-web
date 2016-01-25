@@ -15,7 +15,7 @@ export default store => next => action => {
   const transactionID = nextTransactionID++;
 
   let { endpoint } = callAPI;
-  const { types, method, body } = callAPI;
+  const { types, method, body, callback } = callAPI;
 
   if (typeof endpoint === 'function') {
     endpoint = endpoint(store.getState());
@@ -72,5 +72,9 @@ export default store => next => action => {
         id: transactionID,
       },
     }))
-  );
+  ).then(() => {
+    if (typeof callback === 'function') {
+      return store.dispatch(callback());
+    }
+  });
 };
