@@ -40,23 +40,10 @@ export default store => next => action => {
     },
   }));
 
-  let options = { };
-
-  if (method) {
-    options = {
-      ...options,
-      method,
-    };
-  }
-
-  if (body) {
-    options = {
-      ...options,
-      body: JSON.stringify(body),
-    };
-  }
-
-  return fetch(endpoint, options).then(
+  return fetch(endpoint, {
+    method: method || 'get',
+    body: JSON.stringify(body),
+  }).then(
     response => next(actionWith({
       type: successType,
       response,
