@@ -13,11 +13,9 @@ class MeetingItem extends React.Component {
   };
 
   render() {
-    const { props } = this;
-
     return (
       <tr onClick={this._handleClick}>
-        <td>{moment(props.date).format('Do MMMM YYYY.')}</td>
+        <td>{moment(this.props.date).format('Do MMMM YYYY.')}</td>
       </tr>
     );
   }

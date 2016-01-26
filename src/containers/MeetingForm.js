@@ -36,8 +36,6 @@ export class MeetingForm extends React.Component {
   }
 
   render() {
-    const { props } = this;
-
     const modifiers = {
       selected: this._selected,
       disabled: this._disabled,
@@ -46,7 +44,7 @@ export class MeetingForm extends React.Component {
     return (
       <form
         className="text-xs-center"
-        onSubmit={props.handleSubmit}
+        onSubmit={this.props.handleSubmit}
       >
         <h4>{'Odaberi vrijeme sastanka'}</h4>
         <DayPicker
