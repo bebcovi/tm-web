@@ -1,26 +1,13 @@
-import { createStore as _createStore, applyMiddleware } from 'redux';
-import { syncHistory } from 'redux-simple-router';
-import { createHistory } from 'history';
-import thunk from 'redux-thunk';
-import api from './middleware/api';
-import createLogger from 'redux-logger';
+import { createStore, applyMiddleware } from 'redux';
+import middleware from './middleware';
 import rootReducer from './rootReducer';
 
-export const history = createHistory();
-
-let middleware = [syncHistory(history), thunk, api];
-
-if (__DEV__) {
-  middleware = [
-    ...middleware,
-    createLogger(),
-  ];
-}
-
-const createStore = applyMiddleware(...middleware)(_createStore);
+const finalCreateStore = applyMiddleware(
+  ...middleware,
+)(createStore);
 
 export default function configureStore(initialState) {
-  const store = createStore(rootReducer, initialState);
+  const store = finalCreateStore(rootReducer, initialState);
 
   if (__DEV__ && module.hot) {
     // Enable webpack hot module replacement for reducers

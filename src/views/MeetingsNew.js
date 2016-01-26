@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { routeActions } from 'redux-simple-router';
+import { routeActions } from 'react-router-redux';
 import MeetingForm from '../containers/MeetingForm';
 import { addMeeting, loadMeetings } from '../redux/modules/meetings';
 
