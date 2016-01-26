@@ -1,4 +1,5 @@
 import { BEGIN, COMMIT, REVERT } from 'redux-optimist';
+import { camelizeKeys, decamelizeKeys } from 'humps';
 import fetch from '../../helpers/fetch-api';
 
 export const CALL_API = Symbol('Call API');
@@ -42,19 +43,19 @@ export default store => next => action => {
 
   return fetch(endpoint, {
     method: method || 'get',
-    body: JSON.stringify(body),
+    body: JSON.stringify(decamelizeKeys(body)),
   }).then(
     response => next(actionWith({
       type: successType,
-      response,
+      response: camelizeKeys(response),
       optimist: {
         type: COMMIT,
         id: transactionID,
       },
     })),
     error => next(actionWith({
-      type: errorType,
-      error,
+      type: failureType,
+      error: camelizeKeys(error),
       optimist: {
         type: REVERT,
         id: transactionID,
