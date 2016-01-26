@@ -3,7 +3,7 @@ import MeetingItem from './MeetingItem';
 import * as propTypes from '../prop-types';
 
 const MeetingList = (props) => (
-  <table className="table table-striped">
+  <table className="table table-hover">
     <thead>
       <tr>
         <th>{'Datum'}</th>
