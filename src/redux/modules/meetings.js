@@ -3,12 +3,12 @@ import { CALL_API } from '../middleware/api';
 
 const LIST_LOAD_REQUEST = 'app/meetings/LIST_LOAD_REQUEST';
 const LIST_LOAD_SUCCESS = 'app/meetings/LIST_LOAD_SUCCESS';
-const LIST_LOAD_ERROR = 'app/meetings/LIST_LOAD_ERROR';
+const LIST_LOAD_FAILURE = 'app/meetings/LIST_LOAD_FAILURE';
 
 export function loadMeetings() {
   return {
     [CALL_API]: {
-      types: [LIST_LOAD_REQUEST, LIST_LOAD_SUCCESS, LIST_LOAD_ERROR],
+      types: [LIST_LOAD_REQUEST, LIST_LOAD_SUCCESS, LIST_LOAD_FAILURE],
       endpoint: '/meetings',
     },
   };
@@ -16,13 +16,13 @@ export function loadMeetings() {
 
 const ITEM_ADD_REQUEST = 'app/meetings/ITEM_ADD_REQUEST';
 const ITEM_ADD_SUCCESS = 'app/meetings/ITEM_ADD_SUCCESS';
-const ITEM_ADD_ERROR = 'app/meetings/ITEM_ADD_ERROR';
+const ITEM_ADD_FAILURE = 'app/meetings/ITEM_ADD_FAILURE';
 
 export function addMeeting(attributes) {
   return {
     attributes,
     [CALL_API]: {
-      types: [ITEM_ADD_REQUEST, ITEM_ADD_SUCCESS, ITEM_ADD_ERROR],
+      types: [ITEM_ADD_REQUEST, ITEM_ADD_SUCCESS, ITEM_ADD_FAILURE],
       endpoint: '/meetings',
       method: 'post',
       body: {
@@ -37,13 +37,13 @@ export function addMeeting(attributes) {
 
 const ITEM_DELETE_REQUEST = 'app/meetings/ITEM_DELETE_REQUEST';
 const ITEM_DELETE_SUCCESS = 'app/meetings/ITEM_DELETE_SUCCESS';
-const ITEM_DELETE_ERROR = 'app/meetings/ITEM_DELETE_ERROR';
+const ITEM_DELETE_FAILURE = 'app/meetings/ITEM_DELETE_FAILURE';
 
 function deleteMeeting(id) {
   return {
     id,
     [CALL_API]: {
-      types: [ITEM_DELETE_REQUEST, ITEM_DELETE_SUCCESS, ITEM_DELETE_ERROR],
+      types: [ITEM_DELETE_REQUEST, ITEM_DELETE_SUCCESS, ITEM_DELETE_FAILURE],
       endpoint: '/meetings/' + id,
       method: 'delete',
     },
