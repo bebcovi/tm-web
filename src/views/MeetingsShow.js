@@ -26,7 +26,7 @@ export class MeetingsShow extends React.Component {
           {'Dodaj sastanak'}
         </Link>
         <MeetingList
-          {...this.props.meetings}
+          list={this.props.meetings.list}
           onClick={this._handleClick}
         />
       </div>
