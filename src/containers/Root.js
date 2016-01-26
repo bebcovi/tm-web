@@ -1,7 +1,13 @@
 import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, IndexRedirect } from 'react-router';
-import * as View from '../views';
+
+import App from '../views/App';
+
+import MeetingsBase from '../views/MeetingsBase';
+import MeetingsShow from '../views/MeetingsShow';
+import MeetingsNew from '../views/MeetingsNew';
+import MeetingShow from '../views/MeetingShow';
 
 export class Root extends React.Component {
   static propTypes = {
@@ -15,11 +21,11 @@ export class Root extends React.Component {
     return (
       <Provider store={props.store}>
         <Router history={props.history}>
-          <Route path="/" component={View.App}>
-            <Route path="meetings" component={View.MeetingsBase}>
-              <IndexRoute component={View.MeetingsShow} />
-              <Route path="new" component={View.MeetingsNew} />
-              <Route path=":id" component={View.MeetingShow} />
+          <Route path="/" component={App}>
+            <Route path="meetings" component={MeetingsBase}>
+              <IndexRoute component={MeetingsShow} />
+              <Route path="new" component={MeetingsNew} />
+              <Route path=":id" component={MeetingShow} />
             </Route>
             <IndexRedirect to="meetings" />
           </Route>
