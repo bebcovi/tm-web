@@ -3,7 +3,7 @@ import { reduxForm } from 'redux-form';
 import DayPicker, { DateUtils } from 'react-day-picker';
 import LocaleUtils from 'react-day-picker/moment';
 import moment from 'moment';
-import * as Icon from './icons';
+import * as Icon from '../components/icons';
 
 import 'react-day-picker/lib/style.css';
 

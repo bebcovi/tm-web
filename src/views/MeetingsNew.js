@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { routeActions } from 'redux-simple-router';
-import MeetingForm from '../components/MeetingForm';
+import MeetingForm from '../containers/MeetingForm';
 import { addItem, loadList } from '../redux/modules/meetings';
 
 class MeetingsNew extends React.Component {
