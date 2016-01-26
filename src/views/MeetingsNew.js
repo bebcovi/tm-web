@@ -2,12 +2,12 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { routeActions } from 'redux-simple-router';
 import MeetingForm from '../containers/MeetingForm';
-import { addItem, loadList } from '../redux/modules/meetings';
+import { addMeeting, loadMeetings } from '../redux/modules/meetings';
 
 class MeetingsNew extends React.Component {
   static propTypes = {
-    addItem: PropTypes.func.isRequired,
-    loadList: PropTypes.func.isRequired,
+    addMeeting: PropTypes.func.isRequired,
+    loadMeetings: PropTypes.func.isRequired,
     push: PropTypes.func.isRequired,
   };
 
@@ -17,8 +17,8 @@ class MeetingsNew extends React.Component {
   }
 
   _handleSubmit(...args) {
-    this.props.addItem(args[0])
-      .then(this.props.loadList)
+    this.props.addMeeting(args[0])
+      .then(this.props.loadMeetings)
       .then(this.props.push('/meetings'));
   }
 
@@ -32,8 +32,8 @@ class MeetingsNew extends React.Component {
 }
 
 const mapDispatchToProps = {
-  addItem,
-  loadList,
+  addMeeting,
+  loadMeetings,
   ...routeActions,
 };
 

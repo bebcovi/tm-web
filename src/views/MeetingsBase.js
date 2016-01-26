@@ -1,15 +1,15 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { loadList } from '../redux/modules/meetings';
+import { loadMeetings } from '../redux/modules/meetings';
 
 class MeetingsBase extends React.Component {
   static propTypes = {
     children: PropTypes.node,
-    loadList: PropTypes.func.isRequired,
+    loadMeetings: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
-    this.props.loadList();
+    this.props.loadMeetings();
   }
 
   render() {
@@ -18,7 +18,7 @@ class MeetingsBase extends React.Component {
 }
 
 const mapDispatchToProps = {
-  loadList,
+  loadMeetings,
 };
 
 export default connect(

@@ -5,7 +5,7 @@ const LIST_LOAD_REQUEST = 'app/meetings/LIST_LOAD_REQUEST';
 const LIST_LOAD_SUCCESS = 'app/meetings/LIST_LOAD_SUCCESS';
 const LIST_LOAD_ERROR = 'app/meetings/LIST_LOAD_ERROR';
 
-export function loadList() {
+export function loadMeetings() {
   return {
     [CALL_API]: {
       types: [LIST_LOAD_REQUEST, LIST_LOAD_SUCCESS, LIST_LOAD_ERROR],
@@ -18,7 +18,7 @@ const ITEM_ADD_REQUEST = 'app/meetings/ITEM_ADD_REQUEST';
 const ITEM_ADD_SUCCESS = 'app/meetings/ITEM_ADD_SUCCESS';
 const ITEM_ADD_ERROR = 'app/meetings/ITEM_ADD_ERROR';
 
-export function addItem(attributes) {
+export function addMeeting(attributes) {
   return {
     attributes,
     [CALL_API]: {
@@ -39,7 +39,7 @@ const ITEM_DELETE_REQUEST = 'app/meetings/ITEM_DELETE_REQUEST';
 const ITEM_DELETE_SUCCESS = 'app/meetings/ITEM_DELETE_SUCCESS';
 const ITEM_DELETE_ERROR = 'app/meetings/ITEM_DELETE_ERROR';
 
-export function deleteItem(id) {
+function deleteMeeting(id) {
   return {
     id,
     [CALL_API]: {
@@ -50,8 +50,36 @@ export function deleteItem(id) {
   };
 }
 
+const PROMPT_ITEM_DELETE = 'app/meetings/PROMPT_ITEM_DELETE';
+
+export function promptDeleteMeeting() {
+  return {
+    type: PROMPT_ITEM_DELETE,
+  };
+}
+
+const CANCEL_ITEM_DELETE = 'app/meetings/CANCEL_ITEM_DELETE';
+
+export function cancelDeleteMeeting() {
+  return {
+    type: CANCEL_ITEM_DELETE,
+  };
+}
+
+const CONFIRM_ITEM_DELETE = 'app/meetings/CONFIRM_ITEM_DELETE';
+
+export function confirmDeleteMeeting(id) {
+  return (dispatch) => {
+    dispatch({
+      type: CONFIRM_ITEM_DELETE,
+    });
+    return dispatch(deleteMeeting(id));
+  };
+}
+
 const initialState = {
   isFetching: false,
+  deletePrompt: false,
   list: [],
 };
 
@@ -86,6 +114,19 @@ export default function reducer(state = initialState, action) {
           }
           return p.concat(c);
         }, []),
+      };
+
+    case PROMPT_ITEM_DELETE:
+      return {
+        ...state,
+        deletePrompt: true,
+      };
+
+    case CANCEL_ITEM_DELETE:
+    case CONFIRM_ITEM_DELETE:
+      return {
+        ...state,
+        deletePrompt: false,
       };
 
     case ITEM_DELETE_REQUEST:

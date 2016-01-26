@@ -74,7 +74,7 @@
     "react-day-picker": "^1.2.0",
     "react-dom": "^0.14.3",
     "react-motion": "^0.3.1",
-    "react-portal": "^1.4.0",
+    "react-portal": "^1.6.0",
     "react-redux": "^4.0.1",
     "react-router": "^1.0.3",
     "redux": "^3.0.5",
