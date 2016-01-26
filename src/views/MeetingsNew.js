@@ -11,16 +11,11 @@ class MeetingsNew extends React.Component {
     push: PropTypes.func.isRequired,
   };
 
-  constructor(props) {
-    super(props);
-    this._handleSubmit = this._handleSubmit.bind(this);
-  }
-
-  _handleSubmit(...args) {
-    this.props.addMeeting(args[0])
+  _handleSubmit = (attributes) => {
+    return this.props.addMeeting(attributes)
       .then(this.props.loadMeetings)
       .then(this.props.push('/meetings'));
-  }
+  };
 
   render() {
     return (

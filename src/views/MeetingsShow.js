@@ -11,14 +11,9 @@ export class MeetingsShow extends React.Component {
     push: PropTypes.func.isRequired,
   };
 
-  constructor(props) {
-    super(props);
-    this._handleClick = this._handleClick.bind(this);
-  }
-
-  _handleClick(id) {
+  _handleClick = (id) => {
     this.props.push('/meetings/' + id);
-  }
+  };
 
   render() {
     return (
