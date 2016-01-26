@@ -14,7 +14,7 @@ const MeetingList = (props) => (
         <MeetingItem
           key={i}
           id={meeting.id}
-          date={meeting.attributes.date}
+          {...meeting.attributes}
           onClick={props.onClick}
         />
       ))}
