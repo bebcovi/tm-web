@@ -17,7 +17,8 @@ export default store => next => action => {
   const transactionID = nextTransactionID++;
 
   let { endpoint } = callAPI;
-  const { types, method, body } = callAPI;
+  const { method, body } = callAPI;
+  const [requestType, successType, failureType] = callAPI.types;
 
   if (typeof endpoint === 'function') {
     endpoint = endpoint(store.getState());
@@ -32,7 +33,6 @@ export default store => next => action => {
     return finalAction;
   }
 
-  const [requestType, successType, failureType] = types;
   next(actionWith({
     type: requestType,
     optimist: {

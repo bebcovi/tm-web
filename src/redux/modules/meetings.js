@@ -104,12 +104,13 @@ export default function reducer(state = initialState, action) {
         ...state,
         list: state.list.reduce((p, c, i, a) => {
           if (!added) {
-            if (moment(c.attributes.date).isSameOrBefore(action.attributes.date)) {
+            const attributes = { ...action.attributes };
+            if (moment(c.attributes.date).isSameOrBefore(attributes.date)) {
               added = true;
-              return p.concat({ attributes: action.attributes }, c);
+              return [...p, { attributes }, c];
             } else if (i === a.length - 1) {
               added = true;
-              return p.concat(c, { attributes: action.attributes });
+              return [...p, c, { attributes }];
             }
           }
           return p.concat(c);
@@ -133,7 +134,7 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         list: state.list.reduce((p, c) => {
-          return c.id === action.id ? p : p.concat(c);
+          return c.id === action.id ? [...p] : [...p, c];
         }, []),
       };
 

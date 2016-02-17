@@ -1,13 +1,13 @@
-import { browserHistory } from 'react-router';
-import { syncHistory } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import api from './api';
+import { syncHistory } from 'react-router-redux';
+import { browserHistory } from 'react-router';
 import createLogger from 'redux-logger';
 
 let middleware = [
-  syncHistory(browserHistory),
   thunk,
   api,
+  syncHistory(browserHistory),
 ];
 
 if (__DEV__) {

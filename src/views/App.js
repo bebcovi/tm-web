@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
+import Navigation from '../containers/Navigation';
 
 export class App extends React.Component {
   static propTypes = {
@@ -17,6 +18,18 @@ export class App extends React.Component {
             >
               {'Toastmasters'}
             </Link>
+            <Navigation
+              items={[
+                {
+                  pathname: '/meetings',
+                  name: 'Sastanci',
+                },
+                {
+                  pathname: '/members',
+                  name: 'Članovi',
+                },
+              ]}
+            />
           </div>
         </nav>
         <div className="container">
