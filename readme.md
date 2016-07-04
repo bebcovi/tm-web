@@ -2,4 +2,4 @@
 
 ## Related
 
-* [Toastmasters API](https://github.com/twin/toastmasters-api)
+* [Toastmasters API](https://github.com/twin/tm-api)
