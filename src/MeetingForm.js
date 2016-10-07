@@ -14,7 +14,10 @@ class MeetingForm extends Component {
   };
 
   handleSubmit = event => {
-    this.props.onSubmit(this.state);
+    this.props.onSubmit({
+      type: 'meetings',
+      attributes: this.state,
+    });
     event.preventDefault();
   };
 

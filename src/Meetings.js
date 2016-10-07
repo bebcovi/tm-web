@@ -1,49 +1,19 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
+import MeetingForm from './MeetingForm';
+import MeetingList from './MeetingList';
 
-export const EMPTY_MSG = 'Još nema unesenih sastanaka.';
+const Meetings = props => (
+  <div className="Meetings">
+    <h2>{'Sastanci'}</h2>
+    <MeetingForm onSubmit={props.onCreate} />
+    <MeetingList onDelete={props.onDelete} meetings={props.meetings} />
+  </div>
+);
 
-class Meeting extends Component {
-  static propTypes = {
-    id: PropTypes.string.isRequired,
-    attributes: PropTypes.object.isRequired,
-    onDelete: PropTypes.func.isRequired,
-  };
-
-  onDelete = () => {
-    this.props.onDelete(this.props.id);
-  };
-
-  render() {
-    return (
-      <li>
-        {this.props.attributes.date}
-        <button type="button" onClick={this.onDelete}>
-          {'×'}
-        </button>
-      </li>
-    );
-  }
-}
-
-class Meetings extends Component {
-  static propTypes = {
-    data: PropTypes.array.isRequired,
-    onDelete: PropTypes.func.isRequired,
-  }
-
-  render() {
-    return (
-      <ul>
-        {this.props.data.length ? this.props.data.map(item => (
-          <Meeting
-            key={item.id}
-            onDelete={this.props.onDelete}
-            {...item}
-          />
-        )) : EMPTY_MSG}
-      </ul>
-    );
-  }
-}
+Meetings.propTypes = {
+  meetings: PropTypes.array.isRequired,
+  onCreate: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+};
 
 export default Meetings;

@@ -18,6 +18,9 @@ it('upon submit prevents default and calls onSubmit with state', () => {
   const wrapper = shallow(<MeetingForm onSubmit={handleSubmit} />);
   wrapper.setState(state);
   wrapper.simulate('submit', event);
-  expect(handleSubmit).toBeCalledWith(state);
+  expect(handleSubmit).toBeCalledWith({
+    type: 'meetings',
+    attributes: state,
+  });
   expect(event.preventDefault).toBeCalled();
 });

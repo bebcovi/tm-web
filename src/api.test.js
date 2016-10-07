@@ -19,7 +19,7 @@ describe('API functions', () => {
     nock(api.URL)
       .post('/meetings', { data: newMeeting })
       .reply(200, { data: meeting });
-    return api.createMeeting(newMeeting.attributes).then(response => {
+    return api.createMeeting(newMeeting).then(response => {
       expect(response.data).toEqual(meeting);
     })
   });

@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
-import MeetingForm from './MeetingForm';
-import Meetings from './Meetings';
+import { BrowserRouter, Match, Miss, Link } from 'react-router';
 import * as api from './api';
 import compareDesc from 'date-fns/compare_desc';
-import logo from './logo.svg';
+
+import Home from './Home';
+import Meetings from './Meetings';
+import NoMatch from './NoMatch';
+
+import logo from './logo.png';
 import './App.css';
 
 class App extends Component {
   state = {
     meetings: [],
-    members: [],
   };
 
   componentWillMount() {
@@ -18,7 +21,7 @@ class App extends Component {
     });
   }
 
-  createMeeting = meeting => {
+  _createMeeting = meeting => {
     api.createMeeting(meeting).then(response => {
       this.setState(prevState => ({
         meetings: prevState.meetings
@@ -28,7 +31,7 @@ class App extends Component {
     });
   };
 
-  deleteMeeting = id => {
+  _deleteMeeting = id => {
     if (confirm('Jesi li siguran da želiš obrisati ovaj sastanak?')) {
       api.deleteMeeting(id).then(() => {
         this.setState(prevState => ({
@@ -40,20 +43,37 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1>Klub Toastmastera Zagreb</h1>
+      <BrowserRouter>
+        <div className="App">
+          <header>
+            <img src={logo} alt="logo" />
+            <h1>{'Klub Toastmastera Zagreb'}</h1>
+          </header>
+          <nav>
+            <ul>
+              <li><Link to="/meetings">{'Sastanci'}</Link></li>
+            </ul>
+          </nav>
+          <div className="container">
+            <Match
+              exactly pattern="/"
+              component={Home}
+            />
+            <Match
+              pattern="/meetings"
+              render={matchProps => (
+                <Meetings
+                  {...matchProps}
+                  meetings={this.state.meetings}
+                  onCreate={this._createMeeting}
+                  onDelete={this._deleteMeeting}
+                />
+              )}
+            />
+            <Miss component={NoMatch} />
+          </div>
         </div>
-        <div className="container">
-          <h2>Sastanci</h2>
-          <MeetingForm onSubmit={this.createMeeting} />
-          <Meetings
-            data={this.state.meetings}
-            onDelete={this.deleteMeeting}
-          />
-        </div>
-      </div>
+      </BrowserRouter>
     );
   }
 }

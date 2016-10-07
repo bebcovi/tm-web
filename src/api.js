@@ -21,13 +21,13 @@ function callApi(url, method, body) {
         return Promise.reject(camelizeKeys(json.errors));
       }
 
-      return Promise.resolve({ ...json, status: response.status });
+      return Promise.resolve(camelizeKeys({
+        status: response.status,
+        ...json,
+      }));
     });
 }
 
-export const getMeetings = callApi.bind(null, '/meetings', 'get');
-export const createMeeting = meeting => callApi('/meetings', 'post', {
-  type: 'meetings',
-  attributes: meeting,
-});
+export const getMeetings = () => callApi('/meetings', 'get');
+export const createMeeting = meeting => callApi('/meetings', 'post', meeting);
 export const deleteMeeting = id => callApi(`/meetings/${id}`, 'delete');
