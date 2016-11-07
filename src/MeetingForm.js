@@ -1,10 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 
-class MeetingForm extends Component {
-  static propTypes = {
-    onSubmit: PropTypes.func.isRequired,
-  };
-
+class MeetingForm extends PureComponent {
   state = {
     date: '',
   };
@@ -36,5 +32,9 @@ class MeetingForm extends Component {
     );
   }
 }
+
+MeetingForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
 
 export default MeetingForm;

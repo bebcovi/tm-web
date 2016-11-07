@@ -41,3 +41,11 @@ export const meetings = [
     },
   },
 ];
+
+export const member = {
+  type: 'member',
+  id: '1',
+  attributes: {
+    active: false,
+  },
+};

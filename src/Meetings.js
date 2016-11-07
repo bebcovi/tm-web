@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 import MeetingForm from './MeetingForm';
 import MeetingList from './MeetingList';
+import { createMeeting, deleteMeeting } from './actions';
 
 const Meetings = props => (
   <div className="Meetings">
@@ -16,4 +18,9 @@ Meetings.propTypes = {
   onDelete: PropTypes.func.isRequired,
 };
 
-export default Meetings;
+export default connect(state => ({
+  meetings: state.meetings,
+}), {
+  onCreate: createMeeting.request,
+  onDelete: deleteMeeting.request,
+})(Meetings);

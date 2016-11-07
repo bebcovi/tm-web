@@ -1,45 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import { BrowserRouter, Match, Miss, Link } from 'react-router';
-import * as api from './api';
-import compareDesc from 'date-fns/compare_desc';
 
 import Home from './Home';
 import Meetings from './Meetings';
+import Members from './Members';
 import NoMatch from './NoMatch';
+
+import { getMeetings, getMembers } from './actions';
 
 import logo from './logo.png';
 import './App.css';
 
-class App extends Component {
-  state = {
-    meetings: [],
-  };
-
+export class App extends Component {
   componentWillMount() {
-    api.getMeetings().then(response => {
-      this.setState({ meetings: response.data });
-    });
+    this.props.getMeetings();
+    this.props.getMembers();
   }
-
-  _createMeeting = meeting => {
-    api.createMeeting(meeting).then(response => {
-      this.setState(prevState => ({
-        meetings: prevState.meetings
-          .concat(response.data)
-          .sort((a, b) => compareDesc(a.attributes.date, b.attributes.date)),
-      }));
-    });
-  };
-
-  _deleteMeeting = id => {
-    if (confirm('Jesi li siguran da želiš obrisati ovaj sastanak?')) {
-      api.deleteMeeting(id).then(() => {
-        this.setState(prevState => ({
-          meetings: prevState.meetings.filter(meeting => meeting.id !== id),
-        }));
-      });
-    }
-  };
 
   render() {
     return (
@@ -52,24 +29,13 @@ class App extends Component {
           <nav>
             <ul>
               <li><Link to="/meetings">{'Sastanci'}</Link></li>
+              <li><Link to="/members">{'Članovi'}</Link></li>
             </ul>
           </nav>
           <div className="container">
-            <Match
-              exactly pattern="/"
-              component={Home}
-            />
-            <Match
-              pattern="/meetings"
-              render={matchProps => (
-                <Meetings
-                  {...matchProps}
-                  meetings={this.state.meetings}
-                  onCreate={this._createMeeting}
-                  onDelete={this._deleteMeeting}
-                />
-              )}
-            />
+            <Match exactly pattern="/" component={Home} />
+            <Match pattern="/meetings" component={Meetings} />
+            <Match pattern="/members" component={Members} />
             <Miss component={NoMatch} />
           </div>
         </div>
@@ -78,4 +44,12 @@ class App extends Component {
   }
 }
 
-export default App;
+App.propTypes = {
+  getMeetings: PropTypes.func.isRequired,
+  getMembers: PropTypes.func.isRequired,
+};
+
+export default connect(null, {
+  getMeetings: getMeetings.request,
+  getMembers: getMembers.request,
+})(App);

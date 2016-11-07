@@ -1,18 +1,6 @@
-import React, { Component, PropTypes } from 'react';
-import shallowCompare from 'react-addons-shallow-compare';
+import React, { PureComponent, PropTypes } from 'react';
 
-class MeetingItem extends Component {
-  static propTypes = {
-    type: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
-    attributes: PropTypes.object.isRequired,
-    onDelete: PropTypes.func.isRequired,
-  };
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return shallowCompare(this, nextProps, nextState);
-  }
-
+class MeetingItem extends PureComponent {
   onDelete = () => {
     this.props.onDelete(this.props.id);
   };
@@ -30,5 +18,12 @@ class MeetingItem extends Component {
     );
   }
 }
+
+MeetingItem.propTypes = {
+  type: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  attributes: PropTypes.object.isRequired,
+  onDelete: PropTypes.func.isRequired,
+};
 
 export default MeetingItem;

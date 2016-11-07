@@ -1,33 +1,29 @@
 import { camelizeKeys, decamelizeKeys } from 'humps';
+import { ajax } from 'rxjs/observable/dom/ajax';
 
 export const URL = 'http://localhost:9292';
 
-function callApi(url, method, body) {
-  return fetch(URL + url, {
-    method,
+export const callApi = ({ url, method, body }) =>
+  ajax({
+    url: URL + url,
+    method: method.toUpperCase(),
     body: body && JSON.stringify({ data: decamelizeKeys(body) }),
+    responseType: 'json',
     headers: {
-      'accept': 'application/json',
+      'accept': 'application/vnd.api+json',
       'authorization': 'Basic ' + btoa(process.env.REACT_APP_USERNAME + ':' + process.env.REACT_APP_PASSWORD),
       'content-type': 'application/vnd.api+json',
     },
-  })
-    .then(response => {
-      return response.json()
-        .then(json => ({ json, response }));
-    })
-    .then(({ json, response }) => {
-      if (!response.ok) {
-        return Promise.reject(camelizeKeys(json.errors));
-      }
+  });
 
-      return Promise.resolve(camelizeKeys({
-        status: response.status,
-        ...json,
-      }));
-    });
-}
+export const getMeetings = () =>
+  callApi({ url: '/meetings', method: 'get' });
+export const createMeeting = body =>
+  callApi({ url: '/meetings', method: 'post', body });
+export const deleteMeeting = id =>
+  callApi({ url: `/meetings/${id}`, method: 'delete' });
 
-export const getMeetings = () => callApi('/meetings', 'get');
-export const createMeeting = meeting => callApi('/meetings', 'post', meeting);
-export const deleteMeeting = id => callApi(`/meetings/${id}`, 'delete');
+export const getMembers = () =>
+  callApi({ url: '/members', method: 'get' });
+export const updateMember = body =>
+  callApi({ url: `/members/${body.id}`, method: 'patch', body });
