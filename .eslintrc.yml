@@ -1,0 +1,10 @@
+---
+  root: true
+  parser: babel-eslint
+  extends:
+    - airbnb
+    - plugin:flowtype/recommended
+  plugins:
+    - flowtype
+  rules:
+    react/jsx-filename-extension: off

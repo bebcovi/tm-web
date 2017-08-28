@@ -1,0 +1,11 @@
+{
+  "presets": [
+    "next/babel",
+    "flow"
+  ],
+  "plugins": [
+    "transform-export-extensions",
+    "babel-macros",
+    "polished"
+  ]
+}
