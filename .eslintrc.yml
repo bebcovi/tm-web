@@ -8,3 +8,9 @@
     - flowtype
   rules:
     react/jsx-filename-extension: off
+    react/jsx-wrap-multilines:
+      - error
+      - declaration: true
+        assignment: true
+        return: true
+        arrow: false

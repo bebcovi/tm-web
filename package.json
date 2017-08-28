@@ -10,10 +10,13 @@
     "babel-plugin-polished": "^1.1.0",
     "babel-plugin-transform-export-extensions": "^6.22.0",
     "babel-preset-flow": "^6.23.0",
+    "btoa": "^1.1.2",
     "emotion": "^7.2.0",
     "emotion-server": "^7.2.0",
+    "isomorphic-fetch": "^2.2.1",
     "next": "^3.0.6",
     "polished": "^1.6.1",
+    "query-string": "^5.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-emotion": "^7.2.0"
