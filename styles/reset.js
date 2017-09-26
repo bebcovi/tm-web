@@ -1,4 +1,4 @@
-import { injectGlobal } from 'emotion/macro';
+import { injectGlobal } from 'emotion/macro'
 
 export default () => injectGlobal`
   /*! minireset.css v0.0.3 | MIT License | github.com/jgthms/minireset.css */
@@ -82,4 +82,4 @@ export default () => injectGlobal`
     padding: 0;
     text-align: left;
   }
-`;
+`

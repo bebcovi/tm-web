@@ -1,7 +1,7 @@
 // @flow
-import * as React from 'react';
-import Document, { Head, Main, NextScript } from 'next/document';
-import { extractCritical } from 'emotion-server';
+import * as React from 'react'
+import Document, { Head, Main, NextScript } from 'next/document'
+import { extractCritical } from 'emotion-server'
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }: { renderPage: () => {
@@ -9,7 +9,7 @@ export default class MyDocument extends Document {
     head: React.Element<any>[],
     errorHtml: string,
   } }) {
-    const page = renderPage();
+    const page = renderPage()
     const styles: {
       html: string,
       ids: string[],
@@ -17,23 +17,23 @@ export default class MyDocument extends Document {
       rules: {
         cssText: string,
       }[],
-    } = extractCritical(page.html);
-    return { ...page, ...styles };
+    } = extractCritical(page.html)
+    return { ...page, ...styles }
   }
 
   constructor(props: {
     __NEXT_DATA__: { ids: ?string[] },
     ids: string[],
   }) {
-    super(props);
-    const { __NEXT_DATA__, ids } = props;
+    super(props)
+    const { __NEXT_DATA__, ids } = props
     if (ids) {
-      __NEXT_DATA__.ids = ids;
+      __NEXT_DATA__.ids = ids
     }
   }
 
   render() {
-    const { css } = this.props;
+    const { css } = this.props
     return (
       <html lang="en">
         <Head>
@@ -48,6 +48,6 @@ export default class MyDocument extends Document {
           <NextScript />
         </body>
       </html>
-    );
+    )
   }
 }

@@ -1,4 +1,4 @@
-import { injectGlobal } from 'emotion/macro';
+import { injectGlobal } from 'emotion/macro'
 
 export default () => injectGlobal`
   /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
@@ -448,4 +448,4 @@ export default () => injectGlobal`
   [hidden] {
     display: none;
   }
-`;
+`

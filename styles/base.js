@@ -1,5 +1,5 @@
-import { injectGlobal } from 'emotion/macro';
-import { MQ, FONT_FAMILY } from '../utils/constants';
+import { injectGlobal } from 'emotion/macro'
+import { MQ, FONT_FAMILY } from '../utils/constants'
 
 export default () => injectGlobal`
   html {
@@ -14,4 +14,4 @@ export default () => injectGlobal`
   a {
     text-decoration: none;
   }
-`;
+`

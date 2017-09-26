@@ -7,6 +7,9 @@
   plugins:
     - flowtype
   rules:
+    semi:
+      - error
+      - never
     react/jsx-filename-extension: off
     react/jsx-wrap-multilines:
       - error
