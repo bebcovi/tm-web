@@ -1,15 +1,30 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { extractCritical } from 'emotion-server';
 
 export default class MyDocument extends Document {
-  static getInitialProps({ renderPage }) {
+  static getInitialProps({ renderPage }: { renderPage: () => {
+    html: string,
+    head: React.Element<any>[],
+    errorHtml: string,
+  } }) {
     const page = renderPage();
-    const styles = extractCritical(page.html);
+    const styles: {
+      html: string,
+      ids: string[],
+      css: string,
+      rules: {
+        cssText: string,
+      }[],
+    } = extractCritical(page.html);
     return { ...page, ...styles };
   }
 
-  constructor(props) {
+  constructor(props: {
+    __NEXT_DATA__: { ids: ?string[] },
+    ids: string[],
+  }) {
     super(props);
     const { __NEXT_DATA__, ids } = props;
     if (ids) {

@@ -1,11 +1,23 @@
+// @flow
 import * as React from 'react';
 import Page from '../components/page';
 import fetchApi from '../utils/fetch-api';
+import type { Meeting } from '../types';
 
-class Dashboard extends React.Component {
-  async componentWillMount() {
-    const meetings = await fetchApi({ url: '/meetings' });
-    console.log(meetings);
+type State = {
+  meetings?: Meeting[],
+};
+
+class Dashboard extends React.Component<{}, State> {
+  state = {}
+
+  componentWillMount() {
+    fetchApi({ url: '/meetings' }).then(({ data: meetings }: {
+      // eslint-disable-next-line react/no-unused-prop-types
+      data: Meeting[],
+    }) => {
+      this.setState({ meetings });
+    });
   }
 
   render() {

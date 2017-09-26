@@ -1,6 +1,7 @@
 // @flow
+/* global fetch */
 import queryString from 'query-string';
-import fetch from 'isomorphic-fetch';
+import 'isomorphic-fetch';
 import btoa from 'btoa';
 
 const API_URL = process.env.NODE_ENV === 'production'
@@ -9,9 +10,9 @@ const API_URL = process.env.NODE_ENV === 'production'
 
 export default function fetchApi({ url, query }: {
   url: string,
-  query: { [string]: mixed },
-}) {
-  const auth = btoa('toastmasters:secret');
+  query?: {},
+}): Promise<*> {
+  const auth: string = btoa('toastmasters:secret');
   return fetch(`${API_URL}${url}?${queryString.stringify(query)}`, {
     headers: {
       /* eslint-disable quote-props */
