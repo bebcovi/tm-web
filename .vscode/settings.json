@@ -1,3 +1,4 @@
 {
-  "flow.enabled": true
+  "flow.enabled": true,
+  "flow.useNPMPackagedFlow": true
 }
