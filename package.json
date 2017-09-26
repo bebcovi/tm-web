@@ -6,29 +6,29 @@
     "start": "next start"
   },
   "dependencies": {
-    "babel-macros": "^0.5.2",
+    "babel-macros": "^1.0.2",
     "babel-plugin-polished": "^1.1.0",
     "babel-plugin-transform-export-extensions": "^6.22.0",
     "babel-preset-flow": "^6.23.0",
     "btoa": "^1.1.2",
-    "emotion": "^7.2.0",
-    "emotion-server": "^7.2.0",
+    "emotion": "^7.3.2",
+    "emotion-server": "^7.3.2",
     "isomorphic-fetch": "^2.2.1",
-    "next": "^3.0.6",
-    "polished": "^1.6.1",
+    "next": "^3.2.2",
+    "polished": "^1.7.0",
     "query-string": "^5.0.0",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "react-emotion": "^7.2.0"
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
+    "react-emotion": "^7.3.2"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.3",
-    "eslint": "^4.5.0",
+    "babel-eslint": "^8.0.0",
+    "eslint": "^4.7.2",
     "eslint-config-airbnb": "^15.1.0",
-    "eslint-plugin-flowtype": "^2.35.0",
+    "eslint-plugin-flowtype": "^2.36.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.3.0",
-    "flow-bin": "^0.53.1"
+    "eslint-plugin-react": "^7.4.0",
+    "flow-bin": "^0.55.0"
   }
 }
