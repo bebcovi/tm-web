@@ -14,6 +14,8 @@
     "emotion": "^7.3.2",
     "emotion-server": "^7.3.2",
     "isomorphic-fetch": "^2.2.1",
+    "material-ui": "^1.0.0-beta.12",
+    "material-ui-icons": "^1.0.0-beta.10",
     "next": "^3.2.2",
     "polished": "^1.7.0",
     "query-string": "^5.0.0",

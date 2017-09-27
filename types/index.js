@@ -2,6 +2,8 @@
 
 export type Meeting = {
   id: string,
-  date: string,
-  note: string,
+  attributes: {
+    date: string,
+    note: string,
+  },
 };
