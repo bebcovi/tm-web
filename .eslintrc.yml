@@ -18,3 +18,10 @@
         assignment: true
         return: true
         arrow: false
+    react/sort-comp:
+      - error
+      - order:
+          - static-methods
+          - lifecycle
+          - render
+          - everything-else
