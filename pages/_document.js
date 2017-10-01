@@ -39,7 +39,8 @@ export default class MyDocument extends Document {
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta charSet="utf-8" />
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500|Material+Icons" />
+          <link rel="stylesheet" href="//unpkg.com/semantic-ui@^2.2.12/dist/semantic.min.css" />
+          <link rel="stylesheet" href="//unpkg.com/react-day-picker@^6.1.1/lib/style.css" />
           {/* eslint-disable react/no-danger */}
           <style dangerouslySetInnerHTML={{ __html: css }} />
           {/* eslint-enable react/no-danger */}

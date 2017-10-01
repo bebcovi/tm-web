@@ -3,6 +3,7 @@ import * as React from 'react'
 import styled from 'react-emotion/macro'
 import withRedux from 'next-redux-wrapper'
 import { createSelector } from 'reselect'
+import { Divider } from 'semantic-ui-react'
 import Page from '../components/page'
 import CreateMeeting from '../components/create-meeting'
 import Meetings from '../components/meetings'
@@ -11,14 +12,11 @@ import configureStore from '../store'
 import { getMeetings, createMeeting, selectMeetings } from '../store/ducks/meetings'
 
 const Container = styled.div`
-  maxWidth: 50rem;
+  width: 50rem;
+  maxWidth: 100%;
   height: 100vh;
   margin: 0 auto;
-  padding-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  padding: 2rem 1rem;
 `
 
 type Props = {
@@ -39,6 +37,7 @@ class Dashboard extends React.Component<Props> {
           <CreateMeeting
             onSubmit={this.props.createMeeting}
           />
+          <Divider />
           <Meetings
             list={this.props.meetings}
           />

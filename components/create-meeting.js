@@ -1,28 +1,10 @@
 // @flow
 import * as React from 'react'
-import styled from 'react-emotion/macro'
-import { Typography, TextField, Button, CircularProgress } from 'material-ui'
+import { Form, Header } from 'semantic-ui-react'
+import DayPickerInput from 'react-day-picker/DayPickerInput'
 import type { MeetingAttributes } from '../types'
 
-const Form = styled.form`
-  margin-bottom: 2rem;
-`
-const Title = styled(Typography)`
-  margin-bottom: 1rem;
-`
-const StyledTextField = styled(TextField)`
-  display: block;
-  width: 100%;
-`
-const StyledButton = styled(Button)`
-  margin-top: 1rem;
-`
-const Actions = styled.div`
-  display: flex;
-`
-const Spinner = styled(CircularProgress)`
-  margin-left: 1rem;
-`
+const DATE_FORMAT = 'DD/MM/YYYY'
 
 type Props = {
   onSubmit: (MeetingAttributes) => Promise<*>,
@@ -45,51 +27,46 @@ class CreateMeeting extends React.Component<Props, State> {
     const { date, note, loading } = this.state
     return (
       <Form onSubmit={this._handleSubmit}>
-        <Title type="display1">
+        <Header as="h2">
           Create Meeting
-        </Title>
-        <StyledTextField
-          required
-          type="date"
+        </Header>
+        <Form.Field
+          autoComplete="off"
+          control={DayPickerInput}
+          format={DATE_FORMAT}
+          id="date"
           label="Date"
-          margin="normal"
+          required
           value={date}
-          InputLabelProps={{
-            shrink: true,
+          onDayChange={(day) => {
+            this.setState({ date: day.format(DATE_FORMAT) })
           }}
-          onChange={this._handleChangeDate}
         />
-        <StyledTextField
-          multiline
+        <Form.TextArea
+          autoHeight
+          id="note"
           label="Note"
-          margin="normal"
           value={note}
-          onChange={this._handleChangeNote}
+          onChange={(event: SyntheticInputEvent<HTMLTextAreaElement>) => {
+            this.setState({ note: event.target.value })
+          }}
         />
-        <Actions>
-          <StyledButton
-            raised
-            onClick={this._handleSubmit}
-          >
-            Create
-          </StyledButton>
-          {loading
-            ? <Spinner />
-            : null}
-        </Actions>
+        <Form.Button
+          loading={loading}
+          primary
+          type="submit"
+        >
+          Create
+        </Form.Button>
       </Form>
     )
   }
 
-  _handleChangeDate = (event: SyntheticInputEvent<HTMLInputElement>) => {
-    this.setState({ date: event.target.value })
+  _handleChangeField = (event: SyntheticInputEvent<HTMLElement>) => {
+    this.setState({ [event.target.name]: event.target.value })
   }
 
-  _handleChangeNote = (event: SyntheticInputEvent<HTMLInputElement>) => {
-    this.setState({ note: event.target.value })
-  }
-
-  _handleSubmit = (event: SyntheticEvent<HTMLElement>) => {
+  _handleSubmit = (event: SyntheticEvent<HTMLFormElement>) => {
     const { onSubmit } = this.props
     const { date, note } = this.state
     event.preventDefault()

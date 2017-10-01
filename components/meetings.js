@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react'
 import styled from 'react-emotion/macro'
-import { Typography, List, ListItem, ListItemText } from 'material-ui'
+import { Header, List } from 'semantic-ui-react'
 import type { Meeting } from '../types'
 
 const Container = styled.div``
@@ -12,20 +12,19 @@ type Props = {
 
 const Meetings = ({ list }: Props) =>
   <Container>
-    <Typography type="title">
+    <Header as="h2">
       Meetings
-    </Typography>
+    </Header>
     <List>
       {list.map(meeting =>
-        <ListItem
-          key={meeting.id}
-          button
-        >
-          <ListItemText
-            primary={meeting.attributes.date}
-            secondary={meeting.attributes.note}
-          />
-        </ListItem>)}
+        <List.Item key={meeting.id}>
+          <List.Header>
+            {meeting.attributes.date}
+          </List.Header>
+          <List.Description>
+            {meeting.attributes.note}
+          </List.Description>
+        </List.Item>)}
     </List>
   </Container>
 
