@@ -3,12 +3,16 @@ import * as React from 'react'
 import Document, { Head, Main, NextScript } from 'next/document'
 import { extractCritical } from 'emotion-server'
 
-export default class MyDocument extends Document {
-  static getInitialProps({ renderPage }: { renderPage: () => {
+type Props = {
+  renderPage: () => {
     html: string,
-    head: React.Element<any>[],
+    head: Array<React.Element<any>>,
     errorHtml: string,
-  } }) {
+  },
+};
+
+export default class MyDocument extends Document {
+  static getInitialProps({ renderPage }: Props) {
     const page = renderPage()
     const styles: {
       html: string,
