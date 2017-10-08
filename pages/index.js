@@ -27,7 +27,9 @@ type Props = {
 
 class Dashboard extends React.Component<Props> {
   componentWillMount() {
-    this.props.getMeetings()
+    if (typeof window !== 'undefined') {
+      this.props.getMeetings()
+    }
   }
 
   render() {
