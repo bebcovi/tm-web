@@ -7,7 +7,7 @@ import { Divider } from 'semantic-ui-react'
 import Page from '../components/page'
 import CreateMeeting from '../components/create-meeting'
 import Meetings from '../components/meetings'
-import type { Meeting, MeetingAttributes } from '../types'
+import type { Meeting, MeetingAttrs } from '../utils/types'
 import configureStore from '../store'
 import { getMeetings, createMeeting, selectMeetings } from '../store/ducks/meetings'
 
@@ -22,7 +22,7 @@ const Container = styled.div`
 type Props = {
   meetings: Meeting[],
   getMeetings: () => Promise<any>,
-  createMeeting: (MeetingAttributes) => Promise<any>,
+  createMeeting: (MeetingAttrs) => Promise<any>,
 }
 
 class Dashboard extends React.Component<Props> {

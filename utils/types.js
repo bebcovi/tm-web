@@ -1,10 +1,10 @@
 // @flow
 
-export type MeetingAttributes = {
+export type MeetingAttrs = {
   date: string,
   note: string,
 }
 export type Meeting = {
   id: string,
-  attributes: MeetingAttributes,
-};
+  attributes: MeetingAttrs,
+}

@@ -2,7 +2,7 @@
 import * as React from 'react'
 import styled from 'react-emotion/macro'
 import { Header, List } from 'semantic-ui-react'
-import type { Meeting } from '../types'
+import type { Meeting } from '../utils/types'
 
 const Container = styled.div``
 

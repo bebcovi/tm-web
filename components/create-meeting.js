@@ -2,17 +2,15 @@
 import * as React from 'react'
 import { Form, Header } from 'semantic-ui-react'
 import DayPickerInput from 'react-day-picker/DayPickerInput'
-import type { MeetingAttributes } from '../types'
+import type { MeetingAttrs } from '../utils/types'
 
 const DATE_FORMAT = 'DD/MM/YYYY'
 
 type Props = {
-  onSubmit: (MeetingAttributes) => Promise<*>,
+  onSubmit: (MeetingAttrs) => Promise<*>,
 }
 
-type State = {
-  date: string,
-  note: string,
+type State = MeetingAttrs & {
   loading: boolean,
 }
 
