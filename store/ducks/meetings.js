@@ -1,11 +1,25 @@
+import { combineReducers } from 'redux'
+import { createSelector } from 'reselect'
 import fetchApi from '../../utils/fetch-api'
 
 // action types
 
+export const GET_MEETING = 'GET_MEETING'
 export const GET_MEETINGS = 'GET_MEETINGS'
 export const CREATE_MEETING = 'CREATE_MEETING'
 
 // action creators
+
+export const getMeeting = ({ id }) => dispatch =>
+  fetchApi({
+    url: `/meetings/${id}`,
+    method: 'get',
+  }).then((response) => {
+    dispatch({
+      type: GET_MEETING,
+      payload: response.data,
+    })
+  })
 
 export const getMeetings = () => dispatch =>
   fetchApi({
@@ -37,9 +51,7 @@ export const createMeeting = attributes => dispatch =>
 
 // reducers
 
-const initialState = []
-
-const reducer = (state = initialState, action) => {
+const list = (state = [], action) => {
   switch (action.type) {
     case GET_MEETINGS:
       return action.payload
@@ -50,10 +62,31 @@ const reducer = (state = initialState, action) => {
   }
 }
 
-export default reducer
+const current = (state = null, action) => {
+  switch (action.type) {
+    case GET_MEETING:
+      return action.payload
+    default:
+      return state
+  }
+}
+
+export default combineReducers({
+  list,
+  current,
+})
 
 // selectors
 
-export const selectMeetings = state =>
+const selectMeetings = state =>
   state.meetings
 
+export const selectMeetingsList = createSelector(
+  selectMeetings,
+  meetings => meetings.list,
+)
+
+export const selectCurrentMeeting = createSelector(
+  selectMeetings,
+  meetings => meetings.current,
+)

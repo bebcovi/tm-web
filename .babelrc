@@ -6,6 +6,7 @@
   "plugins": [
     "transform-export-extensions",
     "babel-macros",
-    "polished"
+    "polished",
+    "date-fns"
   ]
 }

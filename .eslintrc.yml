@@ -27,6 +27,8 @@
           - render
           - everything-else
 
+    jsx-a11y/anchor-is-valid: off
+
     flowtype/delimiter-dangle:
       - error
       - always-multiline
