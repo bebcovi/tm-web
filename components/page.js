@@ -14,7 +14,7 @@ if (typeof window !== 'undefined') {
 type Props = {
   title?: string,
   children?: React.Node,
-};
+}
 
 const Page = ({ title, children }: Props) => {
   injectGlobalStyles()

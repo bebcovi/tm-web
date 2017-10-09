@@ -9,7 +9,7 @@ type Props = {
     head: Array<React.Element<any>>,
     errorHtml: string,
   },
-};
+}
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }: Props) {

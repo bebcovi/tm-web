@@ -13,7 +13,7 @@ type Options = {
   query?: {},
   method?: string,
   body?: {},
-};
+}
 
 export default function fetchApi(options: Options): Promise<*> {
   const auth: string = btoa('toastmasters:secret')
