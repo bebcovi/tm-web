@@ -13,6 +13,10 @@
     no-underscore-dangle: off
 
     react/jsx-filename-extension: off
+    react/jsx-sort-props:
+      - error
+      - callbacksLast: true
+        shorthandFirst: true
     react/jsx-wrap-multilines:
       - error
       - declaration: true

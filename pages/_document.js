@@ -41,10 +41,12 @@ export default class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
+          {/* eslint-disable react/jsx-sort-props */}
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta charSet="utf-8" />
           <link rel="stylesheet" href="//unpkg.com/semantic-ui@^2.2.12/dist/semantic.min.css" />
           <link rel="stylesheet" href="//unpkg.com/react-day-picker@^6.1.1/lib/style.css" />
+          {/* eslint-enable react/jsx-sort-props */}
           {/* eslint-disable react/no-danger */}
           <style dangerouslySetInnerHTML={{ __html: css }} />
           {/* eslint-enable react/no-danger */}

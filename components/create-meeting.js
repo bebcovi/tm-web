@@ -29,12 +29,12 @@ class CreateMeeting extends React.Component<Props, State> {
           Create Meeting
         </Header>
         <Form.Field
+          required
           autoComplete="off"
           control={DayPickerInput}
           format={DATE_FORMAT}
           id="date"
           label="Date"
-          required
           value={date}
           onDayChange={(day) => {
             this.setState({ date: day.format(DATE_FORMAT) })
@@ -50,8 +50,8 @@ class CreateMeeting extends React.Component<Props, State> {
           }}
         />
         <Form.Button
-          loading={loading}
           primary
+          loading={loading}
           type="submit"
         >
           Create
