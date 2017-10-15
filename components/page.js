@@ -3,7 +3,6 @@ import * as React from 'react'
 import Head from 'next/head'
 import { hydrate } from 'emotion/macro'
 import styled from 'react-emotion/macro'
-import injectGlobalStyles from '../styles'
 
 // Adds server generated styles to emotion cache.
 // '__NEXT_DATA__.ids' is set in '_document.js'
@@ -24,22 +23,18 @@ type Props = {
   title?: string,
 }
 
-const Page = ({ title, children }: Props) => {
-  injectGlobalStyles()
-
-  return (
-    <div>
-      <Head>
-        {title
+const Page = ({ title, children }: Props) => (
+  <div>
+    <Head>
+      {title
           ? <title>{title} | Klub Toastmastera Zagreb</title>
           : <title>Klub Toastmastera Zagreb</title>}
-      </Head>
-      <Container>
-        {children}
-      </Container>
-    </div>
-  )
-}
+    </Head>
+    <Container>
+      {children}
+    </Container>
+  </div>
+)
 
 Page.defaultProps = {
   title: '',
