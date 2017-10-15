@@ -20,8 +20,8 @@ const Container = styled.div`
 `
 
 type Props = {
-  title?: string,
   children?: React.Node,
+  title?: string,
 }
 
 const Page = ({ title, children }: Props) => {

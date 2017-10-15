@@ -5,6 +5,6 @@ export type MeetingAttrs = {
   note: string,
 }
 export type Meeting = {
-  id: string,
   attributes: MeetingAttrs,
+  id: string,
 }

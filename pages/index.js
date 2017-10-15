@@ -11,9 +11,9 @@ import configureStore from '../store'
 import { getMeetings, createMeeting, selectMeetingsList } from '../store/ducks/meetings'
 
 type Props = {
-  meetings: Meeting[],
-  getMeetings: () => Promise<any>,
   createMeeting: (MeetingAttrs) => Promise<any>,
+  getMeetings: () => Promise<any>,
+  meetings: Meeting[],
 }
 
 class Dashboard extends React.Component<Props> {

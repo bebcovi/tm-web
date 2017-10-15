@@ -35,3 +35,6 @@
     flowtype/semi:
       - error
       - never
+    flowtype/sort-keys:
+      - error
+      - asc

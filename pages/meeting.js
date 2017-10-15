@@ -11,9 +11,9 @@ import { getMeeting, selectCurrentMeeting } from '../store/ducks/meetings'
 import type { Meeting as MeetingType } from '../utils/types'
 
 type Props = {
+  getMeeting: ({ id: string }) => void,
   meeting: MeetingType,
   url: { query: { id: string } },
-  getMeeting: ({ id: string }) => void,
 }
 
 class Meeting extends React.Component<Props> {

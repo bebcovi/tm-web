@@ -5,9 +5,9 @@ import { extractCritical } from 'emotion-server'
 
 type Props = {
   renderPage: () => {
-    html: string,
-    head: Array<React.Element<any>>,
     errorHtml: string,
+    head: Array<React.Element<any>>,
+    html: string,
   },
 }
 
@@ -15,9 +15,9 @@ export default class MyDocument extends Document {
   static getInitialProps({ renderPage }: Props) {
     const page = renderPage()
     const styles: {
+      css: string,
       html: string,
       ids: string[],
-      css: string,
       rules: {
         cssText: string,
       }[],

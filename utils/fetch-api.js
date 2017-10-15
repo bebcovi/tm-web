@@ -9,10 +9,10 @@ const API_URL = process.env.NODE_ENV === 'production'
   : 'http://localhost:9292'
 
 type Options = {
-  url: string,
-  query?: {},
-  method?: string,
   body?: {},
+  method?: string,
+  query?: {},
+  url: string,
 }
 
 export default function fetchApi(options: Options): Promise<*> {
