@@ -2,6 +2,8 @@
 import * as React from 'react'
 import { Form, Header } from 'semantic-ui-react'
 import DayPickerInput from 'react-day-picker/DayPickerInput'
+import { format } from 'date-fns'
+import { getNextMonday } from '../utils/date'
 import type { MeetingAttrs } from '../utils/types'
 
 const DATE_FORMAT = 'DD/MM/YYYY'
@@ -16,7 +18,7 @@ type State = MeetingAttrs & {
 
 class CreateMeeting extends React.Component<Props, State> {
   state = {
-    date: '',
+    date: format(getNextMonday(), DATE_FORMAT),
     note: '',
     loading: false,
   }
@@ -32,6 +34,12 @@ class CreateMeeting extends React.Component<Props, State> {
           required
           autoComplete="off"
           control={DayPickerInput}
+          dayPickerProps={{
+            disabledDays: {
+              daysOfWeek: [0, 2, 3, 4, 5, 6],
+            },
+            firstDayOfWeek: 1,
+          }}
           format={DATE_FORMAT}
           id="date"
           label="Date"
