@@ -1,12 +1,41 @@
 {
-  "presets": [
-    "next/babel",
-    "flow"
-  ],
-  "plugins": [
-    "transform-export-extensions",
-    "babel-macros",
-    "polished",
-    "date-fns"
-  ]
+  "env": {
+    "development": {
+      "presets": [
+        "next/babel",
+        "flow"
+      ],
+      "plugins": [
+        "transform-export-extensions",
+        "babel-macros",
+        "polished",
+        "date-fns"
+      ]
+    },
+    "test": {
+      "presets": [
+        ["env", { "modules": "commonjs" }],
+        "next/babel",
+        "flow"
+      ],
+      "plugins": [
+        "transform-export-extensions",
+        "babel-macros",
+        "polished",
+        "date-fns"
+      ]
+    },
+    "production": {
+      "presets": [
+        "next/babel",
+        "flow"
+      ],
+      "plugins": [
+        "transform-export-extensions",
+        "babel-macros",
+        "polished",
+        "date-fns"
+      ]
+    }
+  }
 }
