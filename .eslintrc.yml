@@ -12,6 +12,8 @@
       - never
     no-underscore-dangle: off
 
+    import/no-extraneous-dependencies: off
+
     react/jsx-filename-extension: off
     react/jsx-sort-props:
       - error
